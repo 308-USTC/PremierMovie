@@ -1,0 +1,424 @@
+.charts-box li,
+.charts-box ul {
+    margin: 0;
+    padding: 0
+}
+
+.clearfix:after {
+    content: "\0020";
+    height: 0;
+    display: block;
+    clear: both;
+    visibility: hidden
+}
+
+
+/*.clearfix {
+    clear: both;
+    zoom: 1
+}*/
+
+.charts-box {
+    width: 980px;
+    margin: 0 auto;
+    position: relative;
+    zoom: 1
+}
+
+.charts-title {
+    font-size: 28px;
+    color: #367fc7;
+    height: 60px;
+    line-height: 60px
+}
+
+.ic {
+    background: url(http://i1.letvimg.com/img/201307/19/1129/charts_icon.24.png) no-repeat;
+    display: inline-block;
+    zoom: 1;
+    font-size: 0;
+    line-height: 0;
+    vertical-align: middle
+}
+
+.i-selected {
+    background-position: 0 0;
+    width: 20px;
+    height: 10px
+}
+
+.i-down,
+.i-gup,
+.i-static {
+    width: 10px;
+    height: 14px
+}
+
+.i-static {
+    background-position: 0 -12px
+}
+
+.i-gup {
+    background-position: 0 -33px
+}
+
+.i-down {
+    background-position: 0 -55px
+}
+
+.charts-side {
+    width: 162px;
+    overflow: hidden;
+    float: left
+}
+
+.charts-side-tabs {
+    border: 1px solid #d5d5d5;
+    margin-bottom: 20px
+}
+
+.charts-side-tabs li {
+    border-bottom: 1px solid #efefef;
+    background: #fff
+}
+
+.charts-side-tabs li a {
+    display: block;
+    zoom: 1;
+    height: 34px;
+    line-height: 34px;
+    padding-left: 20px;
+    font-size: 14px
+}
+
+.charts-side-tabs li.current {
+    background: url(http://i1.letvimg.com/img/201307/19/1129/side_bg.png) repeat-x
+}
+
+.charts-side-tabs li.current a {
+    color: #fff
+}
+
+.charts-side-ad li {
+    margin-bottom: 20px;
+    text-align: center
+}
+
+.charts-side-ad li img {
+    width: 160px;
+    height: 80px
+}
+
+.charts-content {
+    float: right;
+    width: 800px;
+    overflow: hidden;
+    zoom: 1
+}
+
+.charts-tabs {
+    border-bottom: 2px solid #529bef;
+    margin-bottom: 20px
+}
+
+.charts-tabs li {
+    float: left;
+    font-size: 14px;
+    margin-right: 5px;
+    height: 27px;
+    line-height: 27px;
+    border-radius: 2px 2px 0 0;
+    box-shadow: 1px 0 4px #B7B6B6;
+    background: #fff;
+    cursor: pointer;
+    font-size: 14px
+}
+
+.charts-tabs li a {
+    color: #969696;
+    height: 27px;
+    line-height: 27px;
+    display: block;
+    padding: 0 20px
+}
+
+.charts-tabs li:hover,
+.charts-tabs li:hover a {
+    color: #529bef
+}
+
+.charts-tabs li.selected {
+    background: #529bef;
+    cursor: default;
+    color: #fff;
+    padding: 0 20px
+}
+
+.charts-tabs li.selected a {
+    color: #fff
+}
+
+.chart-data,
+.chart-section {
+    background: #fff;
+    box-shadow: 1px 2px 4px #ddd
+}
+
+.chart-data {
+    height: 2300px
+}
+
+.charts-kinds {
+    border: 1px solid #fafafa;
+    border-bottom: 0;
+    border-bottom: none;
+    height: 41px;
+    text-align: right;
+    padding: 10px 24px 0 0;
+    background: url(http://i0.letvimg.com/img/201307/19/1129/charts_tabsbg.24.png) repeat-x
+}
+
+.charts-kinds a {
+    position: relative;
+    display: inline-block;
+    padding: 0 10px;
+    height: 20px;
+    border-radius: 2px;
+    line-height: 20px;
+    zoom: 1
+}
+
+.charts-kinds a .i-selected {
+    position: absolute;
+    top: 22px;
+    left: 50%;
+    display: none;
+    margin-left: -10px
+}
+
+.charts-kinds a.selected {
+    background: #93bff0;
+    color: #fff
+}
+
+.charts-kinds a.selected .i-selected {
+    display: block
+}
+
+.chart-list {
+    display: none;
+    padding-bottom: 20px
+}
+
+.chart-list li {
+    padding: 10px 15px
+}
+
+.chart-list li:hover {
+    background: #f8f8f9
+}
+
+.chart-list li span {
+    display: inline-block;
+    overflow: hidden;
+    overflow: hidden;
+    margin-right: 4px;
+    height: 16px;
+    vertical-align: top;
+    line-height: 16px;
+    zoom: 1
+}
+
+.rank-T3,
+.rank-other {
+    /*width: 14px;
+    height: 14px;*/
+    border-radius: 2px;
+    text-align: center;
+    line-height: 14px
+}
+
+.rank-other {
+    display: block;
+    border: 1px solid #5c5c5c;
+    color: #5c5c5c
+}
+
+.rank-T3 {
+    display: block;
+    border: 1px solid #3690da;
+    background: #529bef;
+    color: #fff
+}
+
+.chart-list li.chart-cut:hover {
+    background: 0 0
+}
+
+.chart-list li.chart-cut i {
+    display: block;
+    height: 1px;
+    border-bottom: 1px dashed #dadada;
+    font-size: 0;
+    line-height: 0
+}
+
+.chart-list li.rank1 {
+    height: 100px
+}
+
+.t-0 {
+    width: 16px
+}
+
+.t-1 {
+    width: 35px
+}
+
+.t-2 {
+    width: 195px
+}
+
+.t-3 {
+    width: 310px
+}
+
+.t-2 a,
+.t-3 a {
+    margin-right: 4px
+}
+
+.t-4 {
+    width: 48px
+}
+
+.t-5 {
+    width: 76px
+}
+
+.chart-list li .t-6 {
+    margin-right: 0;
+    width: 30px;
+    text-align: center
+}
+
+.t-7 {
+    width: 480px
+}
+
+.t-8 {
+    width: 480px
+}
+
+.t-9 {
+    width: 275px
+}
+
+.t-10 {
+    width: 250px
+}
+
+.t-11 {
+    width: 140px
+}
+
+.t-12 {
+    width: 364px
+}
+
+.t-13 {
+    width: 100px
+}
+
+.t-14 {
+    width: 195px
+}
+
+.t-15 {
+    width: 86px
+}
+
+.chart-list li .t-s {
+    position: relative;
+    padding-left: 130px;
+    /*width: 188px;*/
+    height: 100px;
+    zoom: 1
+}
+
+.chart-box {
+    width: 830px;
+    zoom: 1
+}
+
+.chart-section {
+    float: left;
+    overflow: hidden;
+    margin: 0 20px 20px 0;
+    width: 390px;
+    height: 560px
+}
+
+.h480 {
+    height: 510px
+}
+
+.chart-section .title {
+    float: left;
+    padding-left: 15px;
+    color: #367fc7;
+    font-size: 16px
+}
+
+.t-s-cover {
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+.t-s-cover,
+.t-s-cover img {
+    width: 120px;
+    height: 90px
+}
+
+.t-s-title {
+    display: inline-block;
+    padding-bottom: 5px;
+    word-wrap: break-word;
+    font-size: 14px;
+    line-height: 20px;
+    word-break: break-all
+}
+
+.t-s-info {
+    overflow: hidden;
+    height: 22px;
+    line-height: 22px;
+    width: 188px;
+    margin-bottom: 0;
+}
+
+.t-s-icon {
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    margin-bottom: 0;
+}
+
+.t-s-blue {
+    color: #367FC7
+}
+
+.chart-list li.charts-more {
+    padding: 0 15px;
+    text-align: right
+}
+
+.chart-list li.charts-more a {
+    color: #367FC7
+}
+
+.selected {
+    display: block
+}
