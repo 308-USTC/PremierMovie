@@ -355,6 +355,11 @@ h5 {
     margin-top: -18px;
 }
 
+.navbar-brand img {
+    width: 135px;
+    height: 55px;
+}
+
 .navbar-default .navbar-nav a:hover {
     color: #00AEFF!important;
 }

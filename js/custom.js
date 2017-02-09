@@ -16,8 +16,9 @@ $(window).load(function() { // makes sure the whole site is loaded
         Menu toggle
       =============================================== */
     $(window).bind('scroll', function() {
-        var navHeight = $(window).height() - 40;
-        if ($(window).scrollTop() > navHeight) {
+        var navHeight = $(window).height() - 204;
+        console.log('$(window).scrollTop():' + $(window).scrollTop(), 'navHeight:' + navHeight);
+        if ($(window).scrollTop() >= navHeight) {
             $('.navbar-default').addClass('on');
         } else {
             $('.navbar-default').removeClass('on');
