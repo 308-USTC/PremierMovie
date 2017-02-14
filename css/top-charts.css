@@ -32,6 +32,8 @@
     line-height: 60px
 }
 
+
+/*
 .ic {
     background: url(http://i1.letvimg.com/img/201307/19/1129/charts_icon.24.png) no-repeat;
     display: inline-block;
@@ -64,7 +66,7 @@
 
 .i-down {
     background-position: 0 -55px
-}
+}*/
 
 .charts-side {
     width: 162px;
@@ -220,7 +222,6 @@
 
 .chart-list li span {
     display: inline-block;
-    overflow: hidden;
     overflow: hidden;
     margin-right: 4px;
     height: 16px;
@@ -421,4 +422,13 @@
 
 .selected {
     display: block
+}
+
+.fa-long-arrow-up {
+    color: #c34131;
+}
+
+.fa-long-arrow-down {
+    color: #2e8b57;
+    /*seagreen;*/
 }

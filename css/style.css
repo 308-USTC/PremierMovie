@@ -435,7 +435,8 @@ h5 {
 }
 
 .top-link a {
-    padding: 20px 30px;
+    padding: 15px;
+    /*padding: 20px 30px;*/
     border-radius: 3px;
     background: #fff;
     font-weight: 700;
@@ -447,7 +448,7 @@ h5 {
 .top-link a i {
     color: #00AEFF;
     font-size: 25px;
-    margin-right: 10px;
+    margin-right: 3px;
 }
 
 .top-link a:hover {
