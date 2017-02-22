@@ -17,7 +17,7 @@ $(window).load(function() { // makes sure the whole site is loaded
       =============================================== */
     $(window).bind('scroll', function() {
         var navHeight = $(window).height() - 204;
-        console.log('$(window).scrollTop():' + $(window).scrollTop(), 'navHeight:' + navHeight);
+        //console.log('$(window).scrollTop():' + $(window).scrollTop(), 'navHeight:' + navHeight);
         if ($(window).scrollTop() >= navHeight) {
             $('.navbar-default').addClass('on');
         } else {
@@ -30,31 +30,11 @@ $(window).load(function() { // makes sure the whole site is loaded
         offset: 70
     })
 
-
 });
-
-
 
 $(document).ready(function() {
 
     "use strict";
-
-    $("a[data-rel^='prettyPhoto']").prettyPhoto();
-
-    /* ==============================================
-          Testimonialcarousel
-       =============================================== */
-
-    $("#testimonial-carousel").owlCarousel({
-
-        navigation: false, // Show next and prev buttons
-        slideSpeed: 600,
-        pagination: true,
-        itemsDesktop: [1199, 3],
-        itemsDesktopSmall: [979, 3],
-        singleItem: true
-
-    });
 
     // Custom Navigation Events
     var owl = $("#testimonial-carousel");
@@ -73,57 +53,6 @@ $(document).ready(function() {
     $(".stop").click(function() {
         owl.trigger('owl.stop');
     })
-
-
-    /* ==============================================
-     Client carousel
-    =============================================== */
-
-    $("#client-carousel").owlCarousel({
-        navigation: false, // Show next and prev buttons
-        slideSpeed: 400,
-        pagination: false,
-        items: 5,
-        rewindNav: true,
-        itemsDesktop: [1199, 3],
-        itemsDesktopSmall: [979, 3],
-        stopOnHover: true,
-        autoPlay: true
-
-    });
-
-
-    /* ----------------------------------------------------------- */
-    /*  Main slideshow
-    /* ----------------------------------------------------------- */
-
-    $('#slider-carousel').carousel({
-        pause: true,
-        interval: 1000000,
-    });
-
-
-    $('#app-carousel').carousel({
-        interval: 100000
-    })
-
-
-
-    /* ==============================================
-    Bactstretch js
-=============================================== */
-    //   $.backstretch([
-    //       "images/bg/bg1.jpg",
-    //       "images/bg/bg2.jpg",
-    //       "images/bg/bg3.jpg"
-    //     ], {
-    //         fade: 950,
-    //         duration: 10000
-    //     });  
-
-
-
-
 
     /* ==============================================
     Back To Top Button
@@ -147,6 +76,11 @@ $(document).ready(function() {
 
     $('#back-top').tooltip('hide');
 
+    new WOW().init();
 
+    $('.counter').counterUp({
+        delay: 100,
+        time: 2000
+    });
 
 });

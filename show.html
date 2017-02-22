@@ -14,8 +14,8 @@
     <!-- CSS
   ================================================== -->
     <!-- Bootstrap -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/top-charts.css">
 
@@ -78,18 +78,20 @@
 					        <span class="icon-bar"></span>
 					    </button>
                         <div class="navbar-brand">
-                            <a href="./index.html#header" class="page-scroll">
-                                <img class="img-responsive" src="images/pmlogo.png" alt="logo">
+                            <a href="index.html" class="page-scroll">
+                                <div><img class="img-responsive" src="images/pmlogo.png" alt="冠影">
+                                    <img class="img-responsive" src="images/shulogo.png" alt="上海电影学院">
+                                </div>
                             </a>
                         </div>
                     </div>
                     <!--/ Logo end -->
                     <div class="collapse navbar-collapse clearfix navMenu" role="navigation">
                         <ul class="nav navbar-nav navbar-right">
-                            <li class="active"><a class="page-scroll" href="./index.html#header">主页</a></li>
-                            <li><a class="page-scroll" href="./index.html#feature">核心技术</a></li>
-                            <li><a class="page-scroll" href="./index.html#overview">产品服务</a></li>
-                            <li><a class="page-scroll" href="./index.html#contact">联系我们</a></li>
+                            <li class="active"><a class="page-scroll" href="index.html#header">主页</a></li>
+                            <li><a class="page-scroll" href="index.html#feature">核心技术</a></li>
+                            <li><a class="page-scroll" href="index.html#overview">产品服务</a></li>
+                            <li><a class="page-scroll" href="index.html#contact">联系我们</a></li>
                         </ul>
                     </div>
                     <!--/ Navigation end -->
@@ -247,16 +249,12 @@
                     <div class="footer-content text-center">
                         <a href="#slider-part" class="page-scroll logo-title">
                             <img src="images/pmlogo.png" alt="" class="img-responsive">
+                            <img class="img-responsive" src="images/shulogo.png" alt="上海电影学院">
                         </a>
-                        <ul class="footer-socail list-inline">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        </ul>
+                        <!--<ul class="footer-socail list-inline">
+                            <li><a href="#">微博</a></li>
+                            <li><a href="#">微信</a></li>
+                        </ul>-->
                     </div>
                     <hr>
                     <div class="row">
@@ -274,11 +272,24 @@
     </footer>
     <!-- section Footer end  -->
 
+
     <!-- Back To Top Button -->
     <div id="back-top">
-        <a href="#header" class="page-scroll btn btn-primary"><i class="fa fa-angle-double-up"></i></a>
+        <a href="#header" class="page-scroll btn btn-primary">^</a>
     </div>
     <!-- End Back To Top Button -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- initialize jQuery Library -->
+    <!--<script src="js/jquery.min.js"></script>-->
+    <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+        var hash = window.location.search;
+        var oScript = document.createElement('script');
+        oScript.src = 'js/' + decodeURI(hash).substr(1) + '.js';
+        document.body.appendChild(oScript);
+    </script>
 </body>
 
 </html>

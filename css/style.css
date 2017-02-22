@@ -355,9 +355,23 @@ h5 {
     margin-top: -18px;
 }
 
+.navbar-brand a {
+    background-color: white;
+    display: block;
+}
+
 .navbar-brand img {
+    display: inline;
+}
+
+.navbar-brand img:first-child {
     width: 135px;
     height: 55px;
+}
+
+.navbar-brand img:last-child {
+    width: 135px;
+    height: 24px;
 }
 
 .navbar-default .navbar-nav a:hover {
@@ -447,8 +461,8 @@ h5 {
 
 .top-link a i {
     color: #00AEFF;
-    font-size: 25px;
-    margin-right: 3px;
+    font-size: 20px;
+    margin-right: 6px;
 }
 
 .top-link a:hover {
@@ -887,8 +901,6 @@ h5 {
     background: #00AEFF;
     padding: 80px 0px;
 }
-
-.facts {}
 
 .line {
     width: 50px;
@@ -1444,3 +1456,99 @@ h5 {
     background: #00AEFF;
     opacity: 1;
 }
+
+
+/** actor.html **/
+
+#tab1>div {
+    height: 500px;
+    width: 100%;
+    min-width: 550px;
+}
+
+
+/*--------------------------------------------------------------------------
++	Product Details Page Style
+--------------------------------------------------------------------------*/
+
+.product-image-large {
+    border: 8px solid #FFF;
+    text-align: center;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-clip: padding-box;
+    box-shadow: inset 0 1px #fff, 0 0 8px #c8cfe6;
+    color: inset 0 1px #fff, 0 0 8px #c8cfe6;
+}
+
+.product-image-large img {
+    max-width: 100%;
+}
+
+.product-details h5 {
+    margin: 0;
+    font-weight: 600;
+}
+
+.product-details .price {
+    font-size: 1.4em;
+    font-weight: 700;
+    text-align: left;
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.6);
+    display: inline;
+    border-radius: 5px;
+    background-clip: padding-box;
+}
+
+.product-details .intro {
+    font-size: .9em;
+}
+
+.product-details-nav {
+    margin-top: 30px !important;
+    margin-left: 0 !important;
+}
+
+.product-detail-info {
+    background: #fff;
+    border-top: 0;
+    border-left: 1px;
+    border-right: 1px;
+    border-bottom: 1px;
+    border-color: #ddd;
+    border-style: solid;
+    padding: 20px 30px;
+}
+
+.product-detail-info p,
+.product-detail-info ul {
+    font-size: 0.9em;
+}
+
+
+/* 基本信息表 */
+
+#tab2 table {
+    width: 100%;
+}
+
+#tab2 table td {
+    font-size: 0.9em;
+    width: 50%;
+    line-height: 28px;
+    border-bottom: 1px solid #E7E7E7;
+}
+
+#tab2 table td:first-child {
+    font-weight: 600;
+}
+
+#tab2 table tr:last-child td {
+    border-bottom: 0;
+}
+
+
+/**
+        * end product-detail
+        **/
