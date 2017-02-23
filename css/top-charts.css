@@ -424,11 +424,11 @@
     display: block
 }
 
-.fa-long-arrow-up {
+.chart-list .up {
     color: #c34131;
 }
 
-.fa-long-arrow-down {
+.chart-list .down {
     color: #2e8b57;
     /*seagreen;*/
 }
