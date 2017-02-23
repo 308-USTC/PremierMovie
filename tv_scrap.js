@@ -27,26 +27,30 @@ function scrap() {
                 ia.push(ja);
             }
             let loop = `
+
+var str = ['<li><span class="t-1">排行</span><span class="t-2">片名</span><span class="t-10">主演</span><span class="t-4">地区</span><span class="t-4">类型</span><span class="t-5">昨日新增</span><span class="t-6">走势</span></li>','<li><span class="t-1">排行</span><span class="t-2">关键字</span><span class="t-3">上榜天数</span><span class="t-4">最高排名</span> <span class="t-5">昨日新增</span><span class="t-6">走势</span></li>','<li><span class="t-1">排行</span><span class="t-2">片名</span><span class="t-3">主演</span><span class="t-4">地区</span><span class="t-5">类型</span><span class="t-6">评分</span></li>'
+];
+
 for (var k = 0; k < ia.length; ++k) {
     var listr = str[k];
     for (var i = 0; i < ia[k].length; ++i) {
         var lilen = ia[k][0].length;
         if (i == 0) {
             var li0 = $(listr);
-            for (var j = 0; j < lilen; ++j) {
+            for (var j = 0; j < lilen; ++j)
                 li0.find('span:nth-child(' + j + 1 + ')').html(ia[k][0][j]);
-            }
-            $($('.chart-list')[k]).append(li0);
+
+            $($('.chart-list')[k]).html(li0);
         } else {
             var li = $(listr);
             li.find('span:first-child').html('<i class="rank-' + ((ia[k][i][0] > 3) ? 'other' : 'T3') + '">' + ia[k][i][0] + '</i>');
             li.find('span:nth-child(2)').html('<a href="search.html?' + ia[k][i][1] + '" title="点击查看：' + ia[k][i][1] + '" target="_blank">' + ia[k][i][1] + '</a>');
 
-            for (var j = 2; j < lilen; ++j) {
-                // console.log(j, ia[k][i][j]);
+            for (var j = 2; j < lilen; ++j)
                 li.find('span:nth-child(' + (j + 1) + ')').html(ia[k][i][j]);
-            }
-            li.find('span:last-child').addClass((li.find('span:last-child').text() == '↑') ? 'up' : 'down');
+
+            if (k != 2)
+                li.find('span:last-child').addClass((li.find('span:last-child').text() == '↑') ? 'up' : 'down');
 
             $($('.chart-list')[k]).append(li);
         }
