@@ -424,6 +424,9 @@
     display: block
 }
 
+
+/* OY自定义  */
+
 .chart-list .up {
     color: #c34131;
 }
@@ -431,4 +434,30 @@
 .chart-list .down {
     color: #2e8b57;
     /*seagreen;*/
+}
+
+.chart-data {
+    height: auto;
+}
+
+.charts-kinds {
+    text-align: left;
+    padding-left: 15px;
+}
+
+.charts-content {
+    float: none;
+    margin: 0 auto;
+    font-family: 微软雅黑, Arial;
+}
+
+i.rank-T3,
+i.rank-other {
+    font-style: normal;
+    font-size: 12px;
+    width: 16px;
+}
+
+.chart-list {
+    padding-left: 0;
 }

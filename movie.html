@@ -25,25 +25,6 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <style type="text/css">
-        .charts-content {
-            float: none;
-            margin: 0 auto;
-            font-family: 微软雅黑, Arial;
-        }
-        
-        .charts-content i,
-        .t-s,
-        .t-s-info {
-            font-style: normal;
-            font-size: 12px;
-        }
-        
-        ol.chart-list {
-            padding-left: 0;
-            display: block;
-        }
-    </style>
 </head>
 
 <body data-spy="scroll" data-target=".navbar-fixed-top">
@@ -99,48 +80,16 @@
             <!-- top section -->
             <div class="row">
                 <div class="charts-box clearfix">
-                    <!--<div class="charts-side">
-                        <ul class="charts-side-tabs">
-                            <li class="current"><a href="index.html">全部</a></li>
-                            <li><a href="#">电影影响力榜</a></li>
-                            <li><a href="#">电影热议榜</a></li>
-                            <li><a href="#">电影好评榜</a></li>
-                            <li><a href="varhp.html">电影效费比榜</a></li>
-                            <li><a href="comichp.html">热门题材榜</a></li>
-                            <li><a href="enthp.html">未来趋势榜</a></li>
-                            <li><a href="qinzihp.html">各题材票房榜</a></li>
-                            <li><a href="musichp.html">票房号召力明星榜</a></li>
-                            <li><a href="hothp.html">明星热议榜</a></li>
-                            <li><a href="mfilmhp.html">明星好评榜</a></li>
-                            <li><a href="fashionhp.html">明星影响力榜</a></li>
-                            <li><a href="dochp.html">潜力新人榜</a></li>
-                            <li><a href="financehp.html">最佳原创榜</a></li>
-                            <li><a href="carhp.html">最佳改编榜</a></li>
-                            <li><a href="travelhp.html">最佳续作榜</a></li>
-                            <li><a href="advertisementhp.html">最有潜力剧本榜</a></li>
-                            <li><a href="healthhp.html">最佳营销电影榜</a></li>
-                            <li><a href="newshp.html">最佳广告植入榜</a></li>
-                            <li><a href="educationalhp.html">最佳营销效果榜</a></li>
-                            <li><a href="#">最佳电影发行榜等</a></li>
-                            <li><a href="#">舆情热度</a></li>
-                            <li><a href="#">好评与差评度</a></li>
-                            <li><a href="#">舆情地区分布</a></li>
-                            <li><a href="#">舆情对电影影响</a></li>
-                            <li><a href="#">舆情引导</a></li>
-                        </ul>
-                    </div>-->
                     <div class="charts-content">
-                        <!--<ul class="charts-tabs clearfix">
-                            <li class="selected">热播榜</li>
-                            <li><a href="indexhs.html">热搜榜</a></li>
-                            <li><a href="indexhc.html">好评榜</a></li>
-                        </ul>-->
                         <div class="chart-box clearfix">
-                            <div class="chart-section section1">
+                            <div class="chart-data section1">
                                 <div class="charts-kinds">
-                                    <span class="title">电影影响力榜</span>
+                                    <a href="javascript:void(0)" class="j-tab selected">电影影响力榜<i class="ic i-selected"></i></a>
+                                    <a href="javascript:void(0)" class="j-tab">电影好评榜<i class="ic i-selected"></i></a>
+                                    <a href="javascript:void(0)" class="j-tab">电影热议榜<i class="ic i-selected"></i></a>
+                                    <a href="javascript:void(0)" class="j-tab">电影效费比榜<i class="ic i-selected"></i></a>
                                 </div>
-                                <ol class="chart-list">
+                                <ol class="chart-list j-for selected">
                                     <li class="rank1">
                                         <span class="t-0"><i class="rank-T3">1</i></span>
                                         <span class="t-s">
@@ -212,14 +161,8 @@
                                     </li>
                                     <li class="charts-more"><a href="filmhp.html">更多&gt;&gt;</a></li>
                                 </ol>
-                            </div>
 
-                            <div class="chart-section section1">
-                                <div class="charts-kinds">
-                                    <span class="title">电影好评榜</span>
-                                    <!--<a class="selected" href="javascript:void(0)" id="j-all">全部<i class="ic i-selected"></i></a>-->
-                                </div>
-                                <ol class="chart-list j-for selected">
+                                <ol class="chart-list j-for">
                                     <li class="rank1">
                                         <span class="t-0"><i class="rank-T3">1</i></span>
                                         <span class="t-s">
@@ -281,14 +224,8 @@
                                     </li>
                                     <li class="charts-more"><a href="http://top.le.com/filmhc.html">更多&gt;&gt;</a></li>
                                 </ol>
-                            </div>
 
-
-                            <div class="chart-section h480 section1">
-                                <div class="charts-kinds">
-                                    <span class="title">电影热议榜</span>
-                                </div>
-                                <ol class="chart-list j-for selected">
+                                <ol class="chart-list j-for">
                                     <li>
                                         <span class="t-0"><i class="rank-T3">1</i></span>
                                         <span class="t-2"><a href="http://so.le.com/s?wd=%E8%80%81%E7%82%AE%E5%84%BF" title="点击查看：老炮儿" target="_blank">老炮儿</a></span>
@@ -351,16 +288,7 @@
                                     </li>
                                     <li class="charts-more"><a href="http://top.le.com/filmhs.html">更多&gt;&gt;</a></li>
                                 </ol>
-                            </div>
-
-                            <div class="chart-section section1">
-                                <div class="charts-kinds">
-                                    <span class="title">电影效费比榜</span>
-                                </div>
-
-
-
-                                <ol class="chart-list j-for selected">
+                                <ol class="chart-list j-for">
                                     <li class="rank1">
                                         <span class="t-0"><i class="rank-T3">1</i></span>
                                         <span class="t-s">
@@ -484,6 +412,15 @@
         var oScript = document.createElement('script');
         oScript.src = 'js/' + decodeURI(hash).substr(1) + '.js';
         document.body.appendChild(oScript);
+        $(function() {
+            $('.j-tab').hover(function() {
+                if ($(this).hasClass('selected'))
+                    return false;
+
+                $(this).siblings().removeClass('selected').end().addClass('selected');
+                $('.j-for').removeClass('selected').eq($(this).index()).addClass('selected');
+            });
+        });
     </script>
 
 </body>
