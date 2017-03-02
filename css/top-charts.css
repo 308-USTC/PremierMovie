@@ -32,42 +32,6 @@
     line-height: 60px
 }
 
-
-/*
-.ic {
-    background: url(http://i1.letvimg.com/img/201307/19/1129/charts_icon.24.png) no-repeat;
-    display: inline-block;
-    zoom: 1;
-    font-size: 0;
-    line-height: 0;
-    vertical-align: middle
-}
-
-.i-selected {
-    background-position: 0 0;
-    width: 20px;
-    height: 10px
-}
-
-.i-down,
-.i-gup,
-.i-static {
-    width: 10px;
-    height: 14px
-}
-
-.i-static {
-    background-position: 0 -12px
-}
-
-.i-gup {
-    background-position: 0 -33px
-}
-
-.i-down {
-    background-position: 0 -55px
-}*/
-
 .charts-side {
     width: 162px;
     overflow: hidden;
@@ -460,4 +424,22 @@ i.rank-other {
 
 .chart-list {
     padding-left: 0;
+}
+
+
+/* show.html */
+
+
+/* tv.html */
+
+.t-7 {
+    width: 510px;
+}
+
+.t-5 {
+    width: 80px;
+}
+
+.t-4 {
+    width: 60px;
 }

@@ -1542,6 +1542,7 @@ h5 {
 
 #tab2 table td:first-child {
     font-weight: 600;
+    width: 15%;
 }
 
 #tab2 table tr:last-child td {

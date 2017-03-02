@@ -37,27 +37,28 @@ for (var k = 0; k < ia.length; ++k) {
         var lilen = ia[k][0].length;
         if (i == 0) {
             var li0 = $(listr);
-            for (var j = 0; j < lilen; ++j)
-                li0.find('span:nth-child(' + j + 1 + ')').html(ia[k][0][j]);
-
+            for (var j = 0; j < lilen; ++j) {
+                li0.find('span:nth-child(' + (j + 1) + ')').html(ia[k][0][j]);
+            }
             $($('.chart-list')[k]).html(li0);
         } else {
             var li = $(listr);
             li.find('span:first-child').html('<i class="rank-' + ((ia[k][i][0] > 3) ? 'other' : 'T3') + '">' + ia[k][i][0] + '</i>');
             li.find('span:nth-child(2)').html('<a href="search.html?' + ia[k][i][1] + '" title="点击查看：' + ia[k][i][1] + '" target="_blank">' + ia[k][i][1] + '</a>');
 
-            for (var j = 2; j < lilen; ++j)
+            for (var j = 2; j < lilen; ++j) {
                 li.find('span:nth-child(' + (j + 1) + ')').html(ia[k][i][j]);
-
-            if (k != 2)
-                li.find('span:last-child').addClass((li.find('span:last-child').text() == '↑') ? 'up' : 'down');
-
+            }
+            var last = li.find('span:last-child').text();
+            if (last == '↑' || last == '↓') {
+                li.find('span:last-child').addClass((last == '↑') ? 'up' : 'down');
+            }
             $($('.chart-list')[k]).append(li);
         }
     }
 }
             `;
-            fs.writeFile(path.join(__dirname, 'js/tv.js'), '\n var ia =' + JSON.stringify(ia) + '\n' + loop, function(err2) {
+            fs.writeFile(path.join(__dirname, 'js/tv.js'), '\n var ia =' + JSON.stringify(ia) + ';\n' + loop, function(err2) {
                 if (err2) console.log('fs writeFile err: ', err2);
             });
         });
