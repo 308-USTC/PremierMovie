@@ -28,7 +28,7 @@ gulp.task('mini-image', () => {
             progressive: true, //无损压缩jpg
             use: [pngquant()], //深度压缩png
         }))
-        .pipe(gulp.dest('others/minimg'));
+        .pipe(gulp.dest('others/min'));
 })
 
 // gulp.task('watch', () => {
