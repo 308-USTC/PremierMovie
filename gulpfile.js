@@ -3,6 +3,9 @@ var uglify = require('gulp-uglify');
 var minifyHtml = require('gulp-minify-html');
 var rename = require('gulp-rename');
 var livereload = require('gulp-livereload');
+var imagemin = require('gulp-imagemin');
+var imageminOptipng = require('imagemin-optipng');
+var pngquant = require('imagemin-pngquant');
 
 gulp.task('mini-index', () => {
     gulp.src('index.html')
@@ -18,8 +21,17 @@ gulp.task('mini-js', () => {
         .pipe(gulp.dest('js'));
 });
 
+gulp.task('mini-image', () => {
+    gulp.src('others/*.{png,jpg}')
+        .pipe(imagemin({
+            optimizationLevel: 7, //优化等级0-7, 3默认
+            progressive: true, //无损压缩jpg
+            use: [pngquant()], //深度压缩png
+        }))
+        .pipe(gulp.dest('others/minimg'));
+})
 
-gulp.task('watch', () => {
-    livereload.listen();
-    gulp.watch('index.html');
-});
+// gulp.task('watch', () => {
+//     livereload.listen();
+//     gulp.watch('index.html');
+// });
