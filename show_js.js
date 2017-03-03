@@ -6,22 +6,31 @@ var path = require('path');
 
 var ia = [
     [
-        ["排行", "明星", "媒体关注度", "商业价值", "明星标签", "热度变化", "票房号召力", "走势"],
-        ["1", "舒畅", "69,273", "69,273", "影视圈 家庭剧 内地 小玉", "69,273", "265,503,948", "↓"],
-    ]
+        ["排行", "片名", "类型", "播放量", "走势"],
+        ["1", "朗读者", " 古装 ", "265,503,948", "↓"],
+    ],
+    [
+        ["排行", "片名", "类型", "收视率", "走势"],
+        ["1", "朗读者", " 古装 ", "0.01%", "↓"],
+    ],
+    [
+        ["排行", "片名", "类型", "播放量", "走势"],
+        ["1", "朗读者", " 古装 ", "265,503,948", "↓"],
+    ],
 ];
 var ij = 0;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
+// 在数组中添加明星的名字，格式如下： var stars = ['舒畅', '井柏然', '张大大', '刘昊然', '谭松韵', '孙艺洲'];
 var stars = [];
-fs.readFile('star.json', 'utf-8', (err, data) => {
+fs.readFile('show.json', 'utf-8', (err, data) => {
     var idNameMap = JSON.parse(data);
     var timer = setInterval(() => {
         //console.log(idNameMap[i].movie_id, idNameMap[i].movie_name)
-        if (ij == 10) {
+        if (ij == 30) {
             clearInterval(timer);
         } else {
-            queryById(idNameMap[ij].person_id, ij);
+            queryById(idNameMap[ij].movie_id, ij);
         }
         ij++;
     }, 3 * 1000);
@@ -31,34 +40,41 @@ fs.readFile('star.json', 'utf-8', (err, data) => {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 function queryById(id, i) {
-    superagent.get('https://api.douban.com/v2/movie/celebrity/' + id)
+    superagent.get('https://api.douban.com/v2/movie/subject/' + id)
         .end((err, res) => {
             if (err) console.log(err);
             var js = JSON.parse(res.text);
             //console.log(i, js);
 
-            fs.writeFile(path.join(__dirname, 'js/search/star/log.txt'), '\n' + i + ' : ' + JSON.stringify(js) + '\n', { flag: 'a' }, (err2) => {
+            fs.writeFile(path.join(__dirname, 'js/search/show/log.txt'), '\n' + i + ' : ' + JSON.stringify(js) + '\n', { flag: 'a' }, (err2) => {
                 if (err2) console.log('fs writeFile err: ', err2);
             });
 
-            // row cell
-            ia[Math.floor(i / 10)][i % 10 + 1] = [
-                i % 10 + 1,
-                js.name,
-                Math.floor(Math.random() * 1000000),
-                Math.floor(Math.random() * 1000000),
-                ((a) => {
-                    let r = '';
-                    for (let i = 0; i < a.length; ++i) {
-                        r += a[i].subject.title + ' ';
-                    }
-                    return r;
-                })(js.works),
-                Math.floor(Math.random() * 1000000),
-                Math.floor(Math.random() * 1000000),
-                Math.random() > .5 ? '↑' : '↓'
-            ];
-
+            if (Math.floor(i / 10) % 2 == 0) {
+                ia[Math.floor(i / 10)][i % 10 + 1] = [
+                    i % 10 + 1,
+                    js.title,
+                    js.genres.join(' '),
+                    Math.floor(Math.random() * 10000000),
+                    Math.random() > .5 ? '↑' : '↓'
+                ];
+            } else if (Math.floor(i / 10) % 2 == 1) {
+                ia[Math.floor(i / 10)][i % 10 + 1] = [
+                    i % 10 + 1,
+                    js.title,
+                    js.genres.join(' '),
+                    Math.floor(Math.random() * 10000) / 10000 + '%',
+                    Math.random() > .5 ? '↑' : '↓'
+                ];
+            } else {
+                ia[Math.floor(i / 10)][i % 10 + 1] = [
+                    (i % 10 + 1) % 3,
+                    js.title,
+                    js.genres.join(' '),
+                    Math.floor(Math.random() * 10000000),
+                    Math.random() > .5 ? '↑' : '↓'
+                ];
+            }
             //获取单个js文件
             wtjs(js);
             //生成movie.js
@@ -93,9 +109,8 @@ function queryByNameInMySql(name) {
 
 function wtia(ia) {
     let loop = `
-    var str = [
-        '<li><span class="t-6">排行</span><span class="t-13">明星</span><span class="t-5">媒体关注度</span><span class="t-5">商业价值</span><span class="t-10">明星标签</span><span class="t-5">热度变化</span><span class="t-5">票房号召力</span><span class="t-6">走势</span></li>'
-        ];
+    var str = ['<li><span class="t-1">排行</span><span class="t-7">片名</span><span class="t-5">类型</span><span class="t-5">播放量</span><span class="t-6">走势</span></li>','<li><span class="t-1">排行</span><span class="t-7">片名</span><span class="t-5">类型</span><span class="t-5">收视率</span><span class="t-6">走势</span></li>','<li><span class="t-1">排行</span><span class="t-7">片名</span><span class="t-5">类型</span><span class="t-5">播放量</span><span class="t-6">走势</span></li>',,
+     ];
 
     for (var k = 0; k < ia.length; ++k) {
         var listr = str[k];
@@ -110,7 +125,7 @@ function wtia(ia) {
             } else {
                 var li = $(listr);
                 li.find('span:first-child').html('<i class="rank-' + ((ia[k][i][0] > 3) ? 'other' : 'T3') + '">' + ia[k][i][0] + '</i>');
-                li.find('span:nth-child(2)').html('<a href="searchstar.html?' + ia[k][i][1] + '" title="点击查看：' + ia[k][i][1] + '" target="_blank">' + ia[k][i][1] + '</a>');
+                li.find('span:nth-child(2)').html('<a href="searchshow.html?' + ia[k][i][1] + '" title="点击查看：' + ia[k][i][1] + '" target="_blank">' + ia[k][i][1] + '</a>');
 
                 for (var j = 2; j < lilen; ++j) {
                     li.find('span:nth-child(' + (j + 1) + ')').html(ia[k][i][j]);
@@ -120,11 +135,17 @@ function wtia(ia) {
                     li.find('span:last-child').addClass((last == '↑') ? 'up' : 'down');
                 }
                 $($('.chart-list')[k]).append(li);
+                if (k == 2) {
+                    li.find('span:first-child').html('<i class="rank-T3">' + ((i % 3) != 0 ? (i % 3) : 3) + '</i>');
+                }
+                if (k == 2 && i > 0 && i % 3 == 0) { //各类型top3的分割
+                    $($('.chart-list')[k]).append('<li class="chart-cut"><i></i></li>');
+                }
             }
         }
     }
     `
-    fs.writeFile(path.join(__dirname, 'js/star.js'), '\n var ia = ' + JSON.stringify(ia) + '\n' + loop, function(err2) {
+    fs.writeFile(path.join(__dirname, 'js/show.js'), '\n var ia = ' + JSON.stringify(ia) + '\n' + loop, function(err2) {
         if (err2) console.log('fs writeFile err: ', err2);
     });
 }
@@ -133,26 +154,35 @@ function wtjs(i) {
     var infor = {
         "content": [{
             "name": "name",
-            "value": i.name
+            "value": i.title
         }, {
-            "name": "性别",
-            "value": i.gender
-        }, {
-            "name": "作品",
+            "name": "主演",
             "value":
                 ((a) => {
                     let r = '';
                     for (let i = 0; i < a.length; ++i) {
-                        r += a[i].subject.title + ' ';
+                        r += a[i].name + ' ';
                     }
                     return r;
-                })(i.works),
+                })(i.casts),
         }, {
-            "name": "出生地区",
-            "value": i.born_place
+            "name": "类型",
+            "value": i.genres.join(' ')
+        }, {
+            "name": "国家/地区",
+            "value": i.countries.join(' ')
+        }, {
+            "name": "开播日期",
+            "value": i.year
+        }, {
+            "name": "summary",
+            "value": i.summary
+        }, {
+            "name": "评分",
+            "value": i.rating.average
         }, {
             "name": "image",
-            "value": i.avatars.large
+            "value": i.images.large
         }, {
             "name": "id",
             "value": i.id
@@ -401,7 +431,7 @@ function wtjs(i) {
         return Math.round(Math.random() * 1000);
     }
     `;
-    fs.writeFile(path.join(__dirname, 'js/search/star/' + i.name + '.js'), '\n var infor = ' + JSON.stringify(infor) + '\n' + loop, function(err2) {
+    fs.writeFile(path.join(__dirname, 'js/search/show/' + i.title + '.js'), '\n var infor = ' + JSON.stringify(infor) + '\n' + loop, function(err2) {
         if (err2) console.log('fs writeFile err: ', err2);
     });
 }
