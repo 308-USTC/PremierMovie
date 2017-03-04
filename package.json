@@ -5,6 +5,7 @@
     "imagemin-optipng": "^5.2.1",
     "imagemin-pngquant": "^5.0.0",
     "mysql": "^2.13.0",
+    "node-xlrd": "^0.2.4",
     "superagent": "^3.4.4"
   }
 }

@@ -191,7 +191,9 @@
     height: 16px;
     vertical-align: top;
     line-height: 16px;
-    zoom: 1
+    zoom: 1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .rank-T3,
