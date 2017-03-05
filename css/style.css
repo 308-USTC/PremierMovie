@@ -40,7 +40,7 @@
 
 
 @font-face {
-	font-family: 'ElegantIcons';
+	font-family: 'Microsoft YaHei',  'ElegantIcons';
 	src:url('fonts/ElegantIcons.eot');
 	src:url('fonts/ElegantIcons.eot?#iefix') format('embedded-opentype'),
 		url('fonts/ElegantIcons.woff') format('woff'),
@@ -146,7 +146,7 @@ img {
 
 body,
 p {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Microsoft YaHei', 'Raleway', sans-serif;
     /*font-weight: 500; */
     font-size: 14px;
     line-height: 23px;
@@ -159,7 +159,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Microsoft YaHei', 'Open Sans', sans-serif;
 }
 
 h1 {
@@ -203,7 +203,7 @@ h5 {
     font-weight: 700;
     font-size: 40px;
     line-height: 45px;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Microsoft YaHei', 'Open Sans', sans-serif;
     color: #444;
 }
 
@@ -432,7 +432,7 @@ h5 {
 }
 
 .slider h2 {
-    font-family: 'lora', serif;
+    font-family: 'Microsoft YaHei', 'lora', serif;
     font-style: italic;
     color: #fff;
     text-transform: capitalize;
@@ -947,7 +947,7 @@ h5 {
     line-height: 40px;
     padding-top: 10px;
     font-weight: 700;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Microsoft YaHei', 'Open Sans', sans-serif;
 }
 
 .columns:last-child:after {
@@ -1550,6 +1550,63 @@ h5 {
 }
 
 
-/**
-        * end product-detail
-        **/
+/*** end product-detail
+ **/
+
+
+/** 每周话题
+**/
+
+.tags .tags-tab {
+    width: 100%;
+    font-size: 18px;
+    color: #a3a3a3;
+    text-align: center
+}
+
+.tags-tab li {
+    display: inline-block;
+    margin-right: 50px
+}
+
+.tags-tab li span {
+    margin-left: 30px
+}
+
+.tags-tab li strong {
+    font-weight: 400;
+    color: #a3a3a3
+}
+
+.tags-tab li:nth-child(1) span {
+    color: #cc2225
+}
+
+.tags-tab li:last-child {
+    margin-right: 0
+}
+
+.content {
+    margin-top: 26px;
+    margin-left: 200px;
+    margin-right: 200px;
+    padding: 25px 70px;
+    background: #f9f8f8;
+    right: 500px;
+    left: 500px;
+    min-height: 600px;
+}
+
+.content p {
+    font-size: 20px;
+    line-height: 30px;
+    margin-top: 15px;
+}
+
+#movie img {
+    height: auto;
+}
+
+#movie h2 {
+    text-align: center;
+}
