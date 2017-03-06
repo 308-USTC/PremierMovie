@@ -409,7 +409,7 @@ for (var i = 0; i < infor.content.length; ++i) {
     } else if (infor.content[i].name === 'moviename') {
         $('.section-breadcrumbs h1').html(infor.content[i].value);
         $('title').html('冠影 · PREMIER MOVIE - ' + infor.content[i].value);
-        $('.product-image-large img').attr('src', 'https://img5.doubanio.com/view/photo/photo/public/p2380677316.jpg');
+        $('.product-image-large img').attr('src', 'http://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2380677316.jpg');
         $('.price').html('9.71亿');
     } else {
         $('#tab2 table').append('<tr><td>' + infor.content[i].name + '</td><td>' + infor.content[i].value + '</td></tr>')
