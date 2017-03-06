@@ -74,7 +74,7 @@
             <div class="row">
                 <div class="heading-inner text-center">
                     <h2 class="sec-title"> <span>电影</span>排行榜</h2>
-                    <p>电影影响力榜,电影热议榜,电影好评榜,电影效费比榜</p>
+                    <p>电影影响力榜,电影热议榜,电影好评榜,本月票房排行</p>
                 </div>
             </div>
             <!-- top section -->
@@ -87,7 +87,7 @@
                                     <a href="javascript:void(0)" class="j-tab selected">电影影响力榜<i class="ic i-selected"></i></a>
                                     <a href="javascript:void(0)" class="j-tab">电影热议榜<i class="ic i-selected"></i></a>
                                     <a href="javascript:void(0)" class="j-tab">电影好评榜<i class="ic i-selected"></i></a>
-                                    <a href="javascript:void(0)" class="j-tab">电影效费比榜<i class="ic i-selected"></i></a>
+                                    <a href="javascript:void(0)" class="j-tab">本月票房排行<i class="ic i-selected"></i></a>
                                 </div>
                                 <ol class="chart-list j-for selected">
                                     <h1>加载中···</h1>
@@ -156,15 +156,6 @@
         var oScript = document.createElement('script');
         oScript.src = 'js/' + decodeURI(hash).substr(1) + '.js';
         document.body.appendChild(oScript);
-        $(function() {
-            $('.j-tab').hover(function() {
-                if ($(this).hasClass('selected'))
-                    return false;
-
-                $(this).siblings().removeClass('selected').end().addClass('selected');
-                $('.j-for').removeClass('selected').eq($(this).index()).addClass('selected');
-            });
-        });
     </script>
 
 </body>
