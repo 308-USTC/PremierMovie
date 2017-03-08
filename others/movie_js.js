@@ -37,7 +37,7 @@ function saveByMySql() {
         // console.log(list);
         list.forEach((item, index) => {
             if (item && i <= 39) { //当item存在时发起请求,同时不能使用index,否则个数会出错
-                queryByNameInMySql(item, i++);
+                queryByNameInMySql(item.replace(/(^\s*)|(\s*$)/g, ''), i++); //利用reg trim
             }
         });
 
@@ -64,10 +64,12 @@ function queryByNameInMySql(name, idx) {
         } else {
             let i = rows[0];
             if (i == undefined) {
-                fs.writeFile(path.join(__dirname, '../js/search/movie/movieNull.txt'), '\n' + name + '\n', { flag: 'a' }, (err2) => {
+                fs.writeFile(path.join(__dirname, 'movieNull.txt'), '\n' + name + '\n', { flag: 'a' }, (err2) => {
                     if (err2) console.log('fs writeFile err: ', err2);
                 });
-                return;
+                i = {};
+                i.movie_name = name; // 片名
+                i.actor = i.director = i.type = i.score = '';
             }
 
             // infor用于生成单个js, 无票房数据
@@ -108,7 +110,6 @@ function queryByNameInMySql(name, idx) {
             wtjs(infor);
 
             // 按照位置
-            console.log('当前位置: ', idx, [Math.floor(idx / 10), idx % 10 + 1]);
             if (Math.floor(idx / 10) % 2 == 1) {
                 // ["排行", "片名", "主演", "导演", "类型", "评分"]
                 ia[Math.floor(idx / 10)][idx % 10 + 1] = [
@@ -191,34 +192,38 @@ function wtia(ia) {
 function wtjs(infor) {
     let name = infor.content[0].value; // 生成单个js文件的关键为名字
     let datas = { date: [], trend: [], comnum: [], idx: [], keywords: [] }; // 所有数据详细, 分别为日期, 热度变化, 评论数, 百度指数, 热词键值对
-
+    let xlsName = name;
     // 读取关键字文件, 检查文件是否存在
     if (fs.existsSync(path.join(__dirname, 'keywords-movie/' + name + 'keywords.txt'))) {
-        let kws = fs.readFileSync(path.join(__dirname, 'keywords-movie/' + name + 'keywords.txt'), 'utf-8');
-        let list = kws.split('\n');
-        list.forEach((item, index) => {
-            let kw = item.split(',');
-            datas.keywords.push({
-                text: kw[0],
-                weight: parseFloat(kw[1]) //Math.floor(parseFloat(kw[1]) * 1000 * 1000),
-            });
+
+    } else {
+        console.log(name + ' keywords文件未找到');
+        xlsName = '推销员'; // 暂时使用 推销员 代替
+    }
+    let kws = fs.readFileSync(path.join(__dirname, 'keywords-movie/' + xlsName + 'keywords.txt'), 'utf-8');
+    let list = kws.split('\n');
+    list.forEach((item, index) => {
+        let kw = item.split(',');
+        datas.keywords.push({
+            text: kw[0],
+            weight: kw[1] * (Math.random() * 50) //随机扩大1-50倍
         });
-    } else { console.log(name + ' keywords文件未找到'); }
+    });
 
     //打开xls文件, 并将文件读入bk
     xl.open('xls-movie/' + name + '_全国_整体趋势.xls', (err, bk) => {
-        if (err) { console.log(err.name, err.message); return; }
-        let shtCount = bk.sheet.count; // excle表单数量
-        for (let sIdx = 0; sIdx < shtCount; sIdx++) {
-            let sht = bk.sheets[sIdx], // 获取表单
-                rCount = sht.row.count,
-                cCount = sht.column.count;
-            for (let rIdx = 1; rIdx < rCount; rIdx++) {
-                datas.date.push("'" + sht.cell(rIdx, 1) + "'"); //将日期以字符串填入数组
-                datas.idx.push(sht.cell(rIdx, 3)); // 将百度指数填入
+        if (err) { console.log(err.name, err.message); } else {
+            let shtCount = bk.sheet.count; // excle表单数量
+            for (let sIdx = 0; sIdx < shtCount; sIdx++) {
+                let sht = bk.sheets[sIdx], // 获取表单
+                    rCount = sht.row.count,
+                    cCount = sht.column.count;
+                for (let rIdx = 1; rIdx < rCount; rIdx++) {
+                    datas.date.push("'" + sht.cell(rIdx, 1) + "'"); //将日期以字符串填入数组
+                    datas.idx.push(sht.cell(rIdx, 3)); // 将百度指数填入
+                }
             }
         }
-
         let loop = ` 
         var bar_stack_option = {
             title: {
