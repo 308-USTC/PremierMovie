@@ -1,8 +1,8 @@
-var fs = require('fs');
-var superagent = require('superagent');
-var mysql = require('mysql');
-var path = require('path');
-var xl = require('node-xlrd');
+let fs = require('fs');
+let superagent = require('superagent');
+let mysql = require('mysql');
+let path = require('path');
+let xl = require('node-xlrd');
 ////////////////////////////////////
 
 saveByMySql();

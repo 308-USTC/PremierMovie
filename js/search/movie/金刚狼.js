@@ -1,7 +1,6 @@
+var infor = { "content": [{ "name": "name", "value": "金刚狼" }, { "name": "导演", "value": "加文·胡德" }, { "name": "主演", "value": "休·杰克曼 列维·施瑞博尔 瑞恩·雷诺兹 丹尼·赫斯顿 " }, { "name": "类型", "value": "动作 奇幻 科幻" }, { "name": "制片国家/地区", "value": "美国" }, { "name": "上映日期", "value": "2009" }, { "name": "summary", "value": "1845年，尚年幼的维克多与詹姆斯兄弟俩在长辈之间一场突如其来争执中唤醒了自身的潜能，詹姆斯情急之下将陌生的生父杀死，自此兄弟两人流落战场，他们凭借不死不衰之身和野兽一般的天赋在各个时代的战争中大开杀戒，直到遇见史崔克少校并加入了他的异能人特殊部队。詹姆斯（休·杰克曼 Hugh Jackman 饰）很快厌倦了对弱势者的杀戮，离开了团队和维克多（列维·施瑞博尔 Liev Schreiber 饰），与女友凯拉隐居在山林中，做了一名伐木工人。六年后，詹姆斯惊闻昔日的超能力队友纷纷被杀害，而杀手正是哥哥维克多，不久连凯拉也遭其毒手，愤怒的詹姆斯与史崔克合作，将自己的身体改造，成为钢筋铁骨的“金刚狼”。金刚狼摆脱军方控制后，发誓要杀死维克多和史崔克为凯拉报仇……" }, { "name": "评分", "value": 7.1 }, { "name": "image", "value": "https://img1.doubanio.com/view/movie_poster_cover/lpst/public/p2063167557.jpg" }, { "name": "id", "value": "1792928" }] }
 
- var infor = {"content":[{"name":"name","value":"金刚狼"},{"name":"导演","value":"加文·胡德"},{"name":"主演","value":"休·杰克曼 列维·施瑞博尔 瑞恩·雷诺兹 丹尼·赫斯顿 "},{"name":"类型","value":"动作 奇幻 科幻"},{"name":"制片国家/地区","value":"美国"},{"name":"上映日期","value":"2009"},{"name":"summary","value":"1845年，尚年幼的维克多与詹姆斯兄弟俩在长辈之间一场突如其来争执中唤醒了自身的潜能，詹姆斯情急之下将陌生的生父杀死，自此兄弟两人流落战场，他们凭借不死不衰之身和野兽一般的天赋在各个时代的战争中大开杀戒，直到遇见史崔克少校并加入了他的异能人特殊部队。詹姆斯（休·杰克曼 Hugh Jackman 饰）很快厌倦了对弱势者的杀戮，离开了团队和维克多（列维·施瑞博尔 Liev Schreiber 饰），与女友凯拉隐居在山林中，做了一名伐木工人。六年后，詹姆斯惊闻昔日的超能力队友纷纷被杀害，而杀手正是哥哥维克多，不久连凯拉也遭其毒手，愤怒的詹姆斯与史崔克合作，将自己的身体改造，成为钢筋铁骨的“金刚狼”。金刚狼摆脱军方控制后，发誓要杀死维克多和史崔克为凯拉报仇……"},{"name":"评分","value":7.1},{"name":"image","value":"https://img1.doubanio.com/view/movie_poster_cover/lpst/public/p2063167557.jpg"},{"name":"id","value":"1792928"}]}
 
-    
 var bar_stack_option = {
     title: {
         //text: '',
@@ -242,4 +241,3 @@ pie2_Chart.setOption(pie2_option, true);
 function randomData() {
     return Math.round(Math.random() * 1000);
 }
-    

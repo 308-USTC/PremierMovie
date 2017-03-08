@@ -1,244 +1,87 @@
 
- var infor = {"content":[{"name":"name","value":"歌手"},{"name":"主演","value":"林忆莲 谭晶 萧敬腾 迪玛希·库达依别列根 "},{"name":"类型","value":"音乐 真人秀"},{"name":"国家/地区","value":"中国大陆"},{"name":"开播日期","value":"2017"},{"name":"summary","value":"《歌手2017》前身为《我是歌手》，引进自韩国MBC电视台歌手竞赛节目。\n2016年12月14日，湖南卫视公布官方消息，王牌音乐节目《我是歌手》确定更名为《歌手》，并换档至周六晚22：30播出。据了解，更名后的《歌手》是有别于《我是歌手》的全新音乐节目，虽然依旧主打专业实力歌手间的同台比拼，但在整体面貌上有所革新，仅赛制方面就变为期期有淘汰，更有往年《我是歌手》的实力唱将回归，邀请嘉宾的标准也从此前的“立足华语乐坛，放眼全亚洲”拓宽到世界范围，目前有国际唱将正在敲定中。"},{"name":"评分","value":6.9},{"name":"image","value":"https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2411871753.jpg"},{"name":"id","value":"26768316"}]}
+ var infor = {"content":[{"name":"name","value":"歌手"},{"name":"主演","value":"林忆莲 谭晶 萧敬腾 迪玛希·库达依别列根 "},{"name":"类型","value":"音乐 真人秀"},{"name":"国家/地区","value":"中国大陆"},{"name":"开播日期","value":"2017"},{"name":"summary","value":"《歌手2017》前身为《我是歌手》，引进自韩国MBC电视台歌手竞赛节目。\n2016年12月14日，湖南卫视公布官方消息，王牌音乐节目《我是歌手》确定更名为《歌手》，并换档至周六晚22：30播出。据了解，更名后的《歌手》是有别于《我是歌手》的全新音乐节目，虽然依旧主打专业实力歌手间的同台比拼，但在整体面貌上有所革新，仅赛制方面就变为期期有淘汰，更有往年《我是歌手》的实力唱将回归，邀请嘉宾的标准也从此前的“立足华语乐坛，放眼全亚洲”拓宽到世界范围，目前有国际唱将正在敲定中。"},{"name":"评分","value":6.8},{"name":"image","value":"https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2411871753.jpg"},{"name":"id","value":"26768316"}]}
  
-    var bar_stack_option = {
-        title: {
-            //text: '',
-            //subtext: '纯属虚构',
-            x: 'left'
-        },
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: { // 坐标轴指示器，坐标轴触发有效
-                type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
-            }
-        },
-        legend: {
-            data: ['热度变化', '百度指数', '评论数']
-        },
-        grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-        },
-        xAxis: [{
-            type: 'category',
-            data: ["09/30", "10/01", "10/02", "10/03", "10/04", "10/05", "10/06", "10/07", "10/08", "10/09", "10/10", "10/11", "10/12", "10/13", "10/14", "10/15", "10/16", "10/17", "10/18", "10/19", "10/20", "10/21", "10/22", "10/23", "10/24", "10/25", "10/26"]
-        }],
-        yAxis: [{
-            name: '热度',
-            type: 'value',
-        }, {
-            name: '评论数',
-            type: 'value',
-        }, {
-            name: '百度指数',
-            type: 'value',
-            offset: 65
-        }],
-        series: [{
-            name: '热度变化',
-            type: 'line',
-            data: [3898.2, 5972.9, 6539.0, 7285.2, 7706.9, 8606.3, 9112.5, 7997.5, 5177.8, 5150.5, 3700.9, 3295.5, 3023.2, 2737.1, 3727.9, 6218.4, 4915.5, 1988.2, 1811.4, 1680.2, 1435.6, 1246.6, 2410.7, 2085.0, 822.0, 819.7, 737.0]
-        }, {
-            name: '评论数',
-            type: 'line',
-            yAxisIndex: 1,
-            data: [2674, 4782, 5896, 6898, 7041, 7486, 7498, 7276, 6100, 4179, 3155, 2571, 2257, 1930, 2019, 3200, 3087, 1853, 1318, 1193, 985, 884, 1071, 1009, 878, 704, 213]
-        }, {
-            name: '百度指数',
-            type: 'line',
-            yAxisIndex: 2,
-            data: [301898, 304456, 302805, 398524, 425936, 528746, 522102, 489435, 392881, 371374, 282109, 246626, 235598, 237054, 286918, 315762, 290585, 185248, 153730, 144104, 134518, 147049, 166831, 154624, 108557, 93739, 88569]
-        }, ]
-    };
-
-
-    var pie2_option = {
-        title: {
-            text: '观众分析',
-            x: 'center'
-        },
-        tooltip: {
-            trigger: 'item',
-            formatter: "{b} : {c}%"
-        },
-        legend: {
-            orient: 'vertical',
-            left: 'left',
-            data: ['电影1']
-        },
-        series: [{
-            name: '性别比例',
-            type: 'pie',
-            radius: '50%',
-            center: ['20%', '60%'],
-            data: [{
-                value: 63.5,
-                name: '男性'
-            }, {
-                value: 36.5,
-                name: '女性'
+        var bar_stack_option = {
+            title: {
+                x: 'left'
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                    type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+                }
+            },
+            legend: {
+                data: ['热度变化', '百度指数', '评论数']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: [{
+                type: 'category',
+                data: ['2017-01-20','2017-01-21','2017-01-22','2017-01-23','2017-01-24','2017-01-25','2017-01-26','2017-01-27','2017-01-28','2017-01-29','2017-01-30','2017-01-31','2017-02-01','2017-02-02','2017-02-03','2017-02-04','2017-02-05','2017-02-06','2017-02-07','2017-02-08','2017-02-09','2017-02-10','2017-02-11','2017-02-12','2017-02-13','2017-02-14','2017-02-15','2017-02-16','2017-02-17','2017-02-18','2017-02-19','2017-02-20','2017-02-21','2017-02-22','2017-02-23','2017-02-24','2017-02-25','2017-02-26','2017-02-27','2017-02-28','2017-03-01','2017-03-02','2017-03-03','2017-03-04','2017-03-05']
             }],
-            itemStyle: {
-                emphasis: {
-                    shadowBlur: 10,
-                    shadowOffsetX: 0,
-                    shadowColor: 'rgba(0, 0, 0, 0.5)'
-                }
+            yAxis: [{
+                name: '热度',
+                type: 'value',
+            }, {
+                name: '评论数',
+                type: 'value',
+            }, {
+                name: '百度指数',
+                type: 'value',
+                offset: 65
+            }],
+            series: [{
+                name: '热度变化',
+                type: 'line',
+                data: []
+            }, {
+                name: '评论数',
+                type: 'line',
+                yAxisIndex: 1,
+                data: []
+            }, {
+                name: '百度指数',
+                type: 'line',
+                yAxisIndex: 2,
+                data: [106596,394053,753821,262528,166825,125256,128179,153307,484929,1092400,287131,193895,160506,181884,217351,490001,1211747,383062,214158,195949,164857,147214,348403,1148796,245413,159370,152076,112164,131712,345413,1160924,248212,161120,152198,108061,133259,399341,1052683,221653,143645,131101,103054,102916,244331,886032]
+            }, ]
+        };
+
+        var word_list = [{"text":"尴尬","weight":0.9981262872389202},{"text":"强大","weight":0.4620459271826443},{"text":"博爆","weight":0.5102772962221803},{"text":"轻松","weight":0.4397317157688105},{"text":"优雅","weight":0.5322113879102077},{"text":"厉害","weight":0.5821143589345085},{"text":"心疼","weight":0.6875764114525973},{"text":"惊艳","weight":0.05951955426332405},{"text":"不错","weight":0.5237412111091221},{"text":"惊喜","weight":0.09080042566084172},{"text":"无聊","weight":0.27817192162986476},{"text":"最爱","weight":0.047868434508215346},{"text":"自由","weight":0.40606070115111303},{"text":"平庸","weight":0.3128581548721537},{"text":"成功","weight":0.16172158339206383},{"text":"侥幸","weight":0.5022478189888808},{"text":"舒服","weight":0.3298006948811779},{"text":"不愧","weight":0.23497046398107707},{"text":"疲惫","weight":0.3631429728034235},{"text":"漂亮","weight":0.19850364884133198},{"text":"最多","weight":0.4362688994341432},{"text":"新颖","weight":0.5771798862736941},{"text":"真诚","weight":0.3188371445428437},{"text":"简单","weight":0.4269208246562643},{"text":"温柔","weight":0.27798855084341695},{"text":"欢快","weight":0.4415429808985887},{"text":"沉稳","weight":0.036828852962265596},{"text":"良心","weight":0.17357201394149863},{"text":"真挺","weight":0.04760648029136693},{"text":"虚伪","weight":0.15008477098946574},{"text":"冷淡","weight":0.35000324018604306},{"text":"不好意思","weight":0.22435787231168594},{"text":"很棒","weight":0.23504111797594482},{"text":"挺好","weight":0.1738990503727989},{"text":"幸好","weight":0.17930924875012702},{"text":"歌手","weight":1.5970176059719956},{"text":"节目","weight":0.4423942276294537},{"text":"音乐","weight":0.15357391964857664},{"text":"观众","weight":0.253871978193428},{"text":"高音","weight":0.3216874170983103},{"text":"实力","weight":0.13686748211274224},{"text":"唱歌","weight":0.1502396664542992},{"text":"水平","weight":0.10386804042600555},{"text":"声音","weight":0.10358532405324043},{"text":"感情","weight":0.19328400467006415},{"text":"唱功","weight":0.06820711158114189},{"text":"技巧","weight":0.011820560937055937},{"text":"歌声","weight":0.17839610336920553},{"text":"水准","weight":0.0019331817091090722},{"text":"现场","weight":0.17906617058720997},{"text":"合伙人","weight":0.016191330662398022},{"text":"芒果","weight":0.13941847580226846},{"text":"竞技","weight":0.1412798378781209},{"text":"歌唱","weight":0.08473230367464513},{"text":"舞台","weight":0.03093721257286595},{"text":"音乐节目","weight":0.06765565918510513},{"text":"名次","weight":0.11702686423384157},{"text":"阵容","weight":0.07875406098597554},{"text":"歌曲","weight":0.06963059172653234},{"text":"老师","weight":0.09665821805087502},{"text":"情感","weight":0.013415142644644459},{"text":"主持人","weight":0.0975743929237522},{"text":"综艺","weight":0.08891171652246112},{"text":"经纪人","weight":0.03192580214081482},{"text":"女人","weight":0.09108386796307365},{"text":"选歌","weight":0.1316757336636576},{"text":"质量","weight":0.11359150423708515},{"text":"耳朵","weight":0.10245796568055557},{"text":"技术","weight":0.021433336860221152},{"text":"视频","weight":0.040076859038666916},{"text":"","weight":null}];
+
+
+        ///////////////////////////////////////////////////////////////////////
+
+        $('.product-details').html('<h5>简介：</h5><p class="intro"></p>');
+        for (var i = 0; i < infor.content.length; ++i) {
+            if (infor.content[i].name === 'summary') {
+                $('.intro').html(infor.content[i].value);
+            } else if (infor.content[i].name === 'id') {
+                continue;
+            } else if (infor.content[i].name === 'image') {
+                $('.product-image-large img').attr('src', infor.content[i].value);
+            } else if (infor.content[i].name === 'name') {
+                $('.section-breadcrumbs h1').html(infor.content[i].value);
+                $('title').html('冠影 · PREMIER MOVIE - ' + infor.content[i].value);
+            } else {
+                if(infor.content[i].value != null)
+                $('#tab2 table').append('<tr><td>' + infor.content[i].name + '</td><td>' + infor.content[i].value + '</td></tr>')
             }
-        }, {
-            name: '年龄分布',
-            type: 'pie',
-            radius: ['35%', '50%'],
-            center: ['70%', '60%'],
-            data: [{
-                value: 5,
-                name: '70后'
-            }, {
-                value: 14,
-                name: '80后'
-            }, {
-                value: 26,
-                name: '90后'
-            }, {
-                value: 25,
-                name: '00后'
-            }, {
-                value: 18,
-                name: '60后'
-            }, ],
-            itemStyle: {
-                emphasis: {
-                    shadowBlur: 10,
-                    shadowOffsetX: 0,
-                    shadowColor: 'rgba(0, 0, 0, 0.5)'
-                }
-            }
-        }]
-    };
-
-    var word_list = [{
-        text: "主旋律",
-        weight: 5201,
-    }, {
-        text: "剧情",
-        weight: 4993,
-    }, {
-        text: "演技",
-        weight: 3008
-    }, {
-        text: "枪战",
-        weight: 2445
-    }, {
-        text: "动作",
-        weight: 4927
-    }, {
-        text: "场面",
-        weight: 3135
-    }, {
-        text: "国产",
-        weight: 5352
-    }, {
-        text: "节奏",
-        weight: 3076
-    }, {
-        text: "精彩",
-        weight: 2348
-    }, {
-        text: "情节",
-        weight: 2458
-    }, {
-        text: "演员",
-        weight: 2256
-    }, {
-        text: "故事",
-        weight: 2824
-    }, {
-        text: "动作片",
-        weight: 1131
-    }, {
-        text: "紧凑",
-        weight: 3069
-    }, {
-        text: "良心",
-        weight: 1567
-    }, {
-        text: "紧张",
-        weight: 2083
-    }, {
-        text: "很棒",
-        weight: 1022
-    }, {
-        text: "事件",
-        weight: 2303
-    }, {
-        text: "大片",
-        weight: 1805
-    }, {
-        text: "镜头",
-        weight: 1516
-    }, {
-        text: "毒品",
-        weight: 1164
-    }, {
-        text: "硬汉",
-        weight: 1066
-    }, {
-        text: "血腥",
-        weight: 877
-    }, {
-        text: "特效",
-        weight: 595
-    }, {
-        text: "拖沓",
-        weight: 500
-    }, {
-        text: "尴尬",
-        weight: 683
-    }, {
-        text: "诚意",
-        weight: 525
-    }];
-
-
-    ///////////////////////////////////////////////////////////////////////
-
-    $('.product-details').html('<h5>简介：</h5><p class="intro"></p>');
-    for (var i = 0; i < infor.content.length; ++i) {
-        if (infor.content[i].name === 'summary') {
-            $('.intro').html(infor.content[i].value);
-        } else if (infor.content[i].name === 'id') {
-            continue;
-        } else if (infor.content[i].name === 'image') {
-            $('.product-image-large img').attr('src', infor.content[i].value);
-        } else if (infor.content[i].name === 'name') {
-            $('.section-breadcrumbs h1').html(infor.content[i].value);
-            $('title').html('冠影 · PREMIER MOVIE - ' + infor.content[i].value);
-        } else {
-            $('#tab2 table').append('<tr><td>' + infor.content[i].name + '</td><td>' + infor.content[i].value + '</td></tr>')
         }
-    }
 
 
+        var tab1 = document.getElementById('tab1');
+        var bar_dom = document.getElementById('bar_dom');
 
-    var tab1 = document.getElementById('tab1');
-    var bar_dom = document.getElementById('bar_dom');
+        echarts.init(bar_dom).setOption(bar_stack_option, true);
+        $('#key_dom').jQCloud(word_list);
 
-    echarts.init(bar_dom).setOption(bar_stack_option, true);
-    $('#key_dom').jQCloud(word_list);
-
-
-    ///////////////////////////////////////////////////////////////////////
-    var pie2_dom = document.createElement('div');
-
-    tab1.appendChild(pie2_dom);
-
-    var pie2_Chart = echarts.init(pie2_dom);
-    pie2_Chart.setOption(pie2_option, true);
-
-    function randomData() {
-        return Math.round(Math.random() * 1000);
-    }
-    
+        function randomData() {
+            return Math.round(Math.random() * 1000);
+        }
+        

@@ -1,6 +1,6 @@
 
- var infor = {"content":[{"name":"name","value":"Running Man"},{"name":"主演","value":"刘在石 河东勋 李光洙 金钟国 "},{"name":"类型","value":"喜剧 运动 真人秀"},{"name":"国家/地区","value":"韩国"},{"name":"开播日期","value":"2010"},{"name":"summary","value":"Running Man是韩国SBS电视台周末娱乐节目《星期天真好》新的版块，是韩国著名主持人刘在石自“家族诞生”第一季结束后时隔五个月接手的SBS新艺能节目，作为刘在石的SBS艺能节目回归之作，running man致力于打造一个不同于过去real variety的新型态娱乐节目。可以说是SBS赌上自尊心的新艺能节目。2010年7月11日起作为‘星期日真好-1部’播放。 节目通过组队游戏获取金币或running ball 最后决定胜者，输的一队将接受惩罚。节目由刘在石，池石镇，HAHA，金钟国，Gary姜熙健，宋智孝，李光洙等搞笑性、艺能性极高的艺人主持。"},{"name":"评分","value":9.6},{"name":"image","value":"https://img1.doubanio.com/view/movie_poster_cover/lpst/public/p2244153378.jpg"},{"name":"id","value":"10509888"}]}
- 
+ var infor = {"content":[{"name":"name","value":"神探夏洛克 第四季"},{"name":"导演","value":"瑞秋·塔拉蕾"},{"name":"主演","value":"本尼迪克特·康伯巴奇 马丁·弗瑞曼 安德鲁·斯科特 鲁珀特·格雷夫斯 "},{"name":"类型","value":"剧情 犯罪 悬疑"},{"name":"制片国家/地区","value":"英国"},{"name":"上映日期","value":"2017"},{"name":"summary","value":"《神探夏洛克》第四季将于2017年元旦回归BBC1，本季依旧为三集，标题分别为：\n第一集：六座撒切尔像（The Six Thatchers）：编剧为Mark Gatiss，导演为Rachel Talalay；\n第二集：倒下的侦探（The Lying Detective）：编剧为Steven Moffat，导演为Nick Hurran；\n第三集：最后的谜题（The Final Problem）：编剧为Mark Gatiss和Steven Moffat，导演为Ben Caron。"},{"name":"评分","value":8.2},{"name":"image","value":"https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2412302352.jpg"},{"name":"id","value":"25750923"}]}
+
     var bar_stack_option = {
         title: {
             //text: '',
@@ -14,7 +14,7 @@
             }
         },
         legend: {
-            data: ['热度变化', '百度指数', '评论数']
+            data: ['集播放量']
         },
         grid: {
             left: '3%',
@@ -27,31 +27,14 @@
             data: ["09/30", "10/01", "10/02", "10/03", "10/04", "10/05", "10/06", "10/07", "10/08", "10/09", "10/10", "10/11", "10/12", "10/13", "10/14", "10/15", "10/16", "10/17", "10/18", "10/19", "10/20", "10/21", "10/22", "10/23", "10/24", "10/25", "10/26"]
         }],
         yAxis: [{
-            name: '热度',
+            name: '集播放量',
             type: 'value',
-        }, {
-            name: '评论数',
-            type: 'value',
-        }, {
-            name: '百度指数',
-            type: 'value',
-            offset: 65
         }],
         series: [{
-            name: '热度变化',
-            type: 'line',
+            name: '集播放量',
+            type: 'bar',
             data: [3898.2, 5972.9, 6539.0, 7285.2, 7706.9, 8606.3, 9112.5, 7997.5, 5177.8, 5150.5, 3700.9, 3295.5, 3023.2, 2737.1, 3727.9, 6218.4, 4915.5, 1988.2, 1811.4, 1680.2, 1435.6, 1246.6, 2410.7, 2085.0, 822.0, 819.7, 737.0]
-        }, {
-            name: '评论数',
-            type: 'line',
-            yAxisIndex: 1,
-            data: [2674, 4782, 5896, 6898, 7041, 7486, 7498, 7276, 6100, 4179, 3155, 2571, 2257, 1930, 2019, 3200, 3087, 1853, 1318, 1193, 985, 884, 1071, 1009, 878, 704, 213]
-        }, {
-            name: '百度指数',
-            type: 'line',
-            yAxisIndex: 2,
-            data: [301898, 304456, 302805, 398524, 425936, 528746, 522102, 489435, 392881, 371374, 282109, 246626, 235598, 237054, 286918, 315762, 290585, 185248, 153730, 144104, 134518, 147049, 166831, 154624, 108557, 93739, 88569]
-        }, ]
+        }]
     };
 
 
@@ -209,11 +192,9 @@
     for (var i = 0; i < infor.content.length; ++i) {
         if (infor.content[i].name === 'summary') {
             $('.intro').html(infor.content[i].value);
-        } else if (infor.content[i].name === 'id') {
-            continue;
         } else if (infor.content[i].name === 'image') {
             $('.product-image-large img').attr('src', infor.content[i].value);
-        } else if (infor.content[i].name === 'name') {
+        } else if (infor.content[i].name === 'starname') {
             $('.section-breadcrumbs h1').html(infor.content[i].value);
             $('title').html('冠影 · PREMIER MOVIE - ' + infor.content[i].value);
         } else {

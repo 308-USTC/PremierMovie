@@ -1,225 +1,87 @@
 
  var infor = {"content":[{"name":"name","value":"鬼吹灯之精绝古城"},{"name":"导演","value":"孔笙"},{"name":"主演","value":"靳东 陈乔恩 赵达 岳旸 "},{"name":"类型","value":"剧情 悬疑 惊悚"},{"name":"制片国家/地区","value":"中国大陆"},{"name":"上映日期","value":"2016"},{"name":"summary","value":"《鬼吹灯》故事以一本家传的秘书残卷为引，讲述三位当代摸金校尉，为解开部族消失的千古之谜，利用风水秘术，解读天下大山大川的脉搏，寻找一处处失落在大地深处的龙楼宝殿。毕竟那些龙形虎藏、揭天拔地、倒海翻江的举动，都迵异庸俗，在离奇诡异的地下世界中，历史的神秘面纱正一层层地被揭开……"},{"name":"评分","value":8.2},{"name":"image","value":"https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2404604903.jpg"},{"name":"id","value":"26298935"}]}
-
-    var bar_stack_option = {
-        title: {
-            //text: '',
-            //subtext: '纯属虚构',
-            x: 'left'
-        },
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: { // 坐标轴指示器，坐标轴触发有效
-                type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
-            }
-        },
-        legend: {
-            data: ['集播放量']
-        },
-        grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-        },
-        xAxis: [{
-            type: 'category',
-            data: ["09/30", "10/01", "10/02", "10/03", "10/04", "10/05", "10/06", "10/07", "10/08", "10/09", "10/10", "10/11", "10/12", "10/13", "10/14", "10/15", "10/16", "10/17", "10/18", "10/19", "10/20", "10/21", "10/22", "10/23", "10/24", "10/25", "10/26"]
-        }],
-        yAxis: [{
-            name: '集播放量',
-            type: 'value',
-        }],
-        series: [{
-            name: '集播放量',
-            type: 'bar',
-            data: [3898.2, 5972.9, 6539.0, 7285.2, 7706.9, 8606.3, 9112.5, 7997.5, 5177.8, 5150.5, 3700.9, 3295.5, 3023.2, 2737.1, 3727.9, 6218.4, 4915.5, 1988.2, 1811.4, 1680.2, 1435.6, 1246.6, 2410.7, 2085.0, 822.0, 819.7, 737.0]
-        }]
-    };
-
-
-    var pie2_option = {
-        title: {
-            text: '观众分析',
-            x: 'center'
-        },
-        tooltip: {
-            trigger: 'item',
-            formatter: "{b} : {c}%"
-        },
-        legend: {
-            orient: 'vertical',
-            left: 'left',
-            data: ['电影1']
-        },
-        series: [{
-            name: '性别比例',
-            type: 'pie',
-            radius: '50%',
-            center: ['20%', '60%'],
-            data: [{
-                value: 63.5,
-                name: '男性'
-            }, {
-                value: 36.5,
-                name: '女性'
+ 
+        var bar_stack_option = {
+            title: {
+                x: 'left'
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                    type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+                }
+            },
+            legend: {
+                data: ['热度变化', '百度指数', '评论数']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: [{
+                type: 'category',
+                data: ['2017-01-20','2017-01-21','2017-01-22','2017-01-23','2017-01-24','2017-01-25','2017-01-26','2017-01-27','2017-01-28','2017-01-29','2017-01-30','2017-01-31','2017-02-01','2017-02-02','2017-02-03','2017-02-04','2017-02-05','2017-02-06','2017-02-07','2017-02-08','2017-02-09','2017-02-10','2017-02-11','2017-02-12','2017-02-13','2017-02-14','2017-02-15','2017-02-16','2017-02-17','2017-02-18','2017-02-19','2017-02-20','2017-02-21','2017-02-22','2017-02-23','2017-02-24','2017-02-25','2017-02-26','2017-02-27','2017-02-28','2017-03-01','2017-03-02','2017-03-03','2017-03-04','2017-03-05']
             }],
-            itemStyle: {
-                emphasis: {
-                    shadowBlur: 10,
-                    shadowOffsetX: 0,
-                    shadowColor: 'rgba(0, 0, 0, 0.5)'
-                }
+            yAxis: [{
+                name: '热度',
+                type: 'value',
+            }, {
+                name: '评论数',
+                type: 'value',
+            }, {
+                name: '百度指数',
+                type: 'value',
+                offset: 65
+            }],
+            series: [{
+                name: '热度变化',
+                type: 'line',
+                data: []
+            }, {
+                name: '评论数',
+                type: 'line',
+                yAxisIndex: 1,
+                data: []
+            }, {
+                name: '百度指数',
+                type: 'line',
+                yAxisIndex: 2,
+                data: [296381,280200,287951,680419,868618,484620,348182,216132,269497,261898,293048,326797,278197,250889,235445,213694,215955,241095,282111,204826,158765,137724,118258,104857,87099,74136,69446,66145,65346,66562,64336,58734,82592,52319,42358,37924,38632,36518,27642,25408,25752,24048,24436,27247,24588]
+            }, ]
+        };
+
+        var word_list = [{"text":"特效","weight":1.6611572283873912},{"text":"拖沓","weight":0.8221173835196574},{"text":"无聊","weight":0.4328509630190528},{"text":"恐怖","weight":0.14007296575054282},{"text":"紧张","weight":0.10821862629142541},{"text":"不错","weight":0.10133495266298302},{"text":"紧凑","weight":0.04262647269580742},{"text":"一星","weight":0.45428175115901615},{"text":"诚意","weight":0.35534826925996116},{"text":"忠实","weight":0.2312703986785262},{"text":"惊艳","weight":0.4622828288198786},{"text":"妥妥","weight":0.37512329029283165},{"text":"冷静","weight":0.035593006626435254},{"text":"炫酷","weight":0.04368757814427318},{"text":"干净","weight":0.258710030086898},{"text":"简单","weight":0.4209748216383079},{"text":"粗暴","weight":0.1298670442335254},{"text":"出奇","weight":0.14495733022808568},{"text":"稳定","weight":0.021789009718419006},{"text":"睿智","weight":0.4479093710798733},{"text":"纯真","weight":0.2428313353922879},{"text":"硬朗","weight":0.2430397654595091},{"text":"惊险","weight":0.13728363958934195},{"text":"忧郁","weight":0.19268883067647616},{"text":"颓废","weight":0.28275248322374735},{"text":"贫瘠","weight":0.07927433492520075},{"text":"深沉","weight":0.34334911954640585},{"text":"忧愁","weight":0.3342677958228394},{"text":"幼稚","weight":0.34214037830637944},{"text":"个旧","weight":0.20948585505785794},{"text":"糟心","weight":0.1652332425849601},{"text":"良心","weight":0.03765975129688799},{"text":"精良","weight":0.25681015461112205},{"text":"平淡","weight":0.17505591928398284},{"text":"沉闷","weight":0.10035973595152463},{"text":"盗墓","weight":0.4808426553521356},{"text":"剧情","weight":0.08778298016153017},{"text":"演员","weight":0.15256087356108697},{"text":"演技","weight":0.41445412242077334},{"text":"胖子","weight":0.24254827912946877},{"text":"国产","weight":0.11199857488005445},{"text":"人物","weight":0.09873509658257472},{"text":"节奏","weight":0.03714918718243137},{"text":"网剧","weight":0.06996884736205781},{"text":"笔记","weight":0.1735229870769682},{"text":"结局","weight":0.1493782498720022},{"text":"电视剧","weight":0.1049321413317584},{"text":"道具","weight":0.20975610295385125},{"text":"角色","weight":0.06363231359814095},{"text":"台词","weight":0.1757039653241499},{"text":"老干部","weight":0.040943044867794424},{"text":"细节","weight":0.018057760400907175},{"text":"场景","weight":0.20016668399766963},{"text":"用心","weight":0.18895625833279445},{"text":"电影","weight":0.14887740036958924},{"text":"情节","weight":0.12747373381181792},{"text":"沙漠","weight":0.13777845999232513},{"text":"团队","weight":0.16207088319489227},{"text":"作品","weight":0.12233237784639464},{"text":"编剧","weight":0.06075111400916906},{"text":"题材","weight":0.12354384165921276},{"text":"教授","weight":0.07612484238488502},{"text":"地方","weight":0.0028962150489817433},{"text":"探险","weight":0.04016163381330936},{"text":"想象","weight":0.01592050026155765},{"text":"气质","weight":0.11273477332801866},{"text":"剧组","weight":0.07222253437397247},{"text":"山影","weight":0.005057864105860219},{"text":"故事","weight":0.06441001891633166},{"text":"水军","weight":0.05886748994537451},{"text":"","weight":null}];
+
+
+        ///////////////////////////////////////////////////////////////////////
+
+        $('.product-details').html('<h5>简介：</h5><p class="intro"></p>');
+        for (var i = 0; i < infor.content.length; ++i) {
+            if (infor.content[i].name === 'summary') {
+                $('.intro').html(infor.content[i].value);
+            } else if (infor.content[i].name === 'id') {
+                continue;
+            } else if (infor.content[i].name === 'image') {
+                $('.product-image-large img').attr('src', infor.content[i].value);
+            } else if (infor.content[i].name === 'name') {
+                $('.section-breadcrumbs h1').html(infor.content[i].value);
+                $('title').html('冠影 · PREMIER MOVIE - ' + infor.content[i].value);
+            } else {
+                if(infor.content[i].value != null)
+                $('#tab2 table').append('<tr><td>' + infor.content[i].name + '</td><td>' + infor.content[i].value + '</td></tr>')
             }
-        }, {
-            name: '年龄分布',
-            type: 'pie',
-            radius: ['35%', '50%'],
-            center: ['70%', '60%'],
-            data: [{
-                value: 5,
-                name: '70后'
-            }, {
-                value: 14,
-                name: '80后'
-            }, {
-                value: 26,
-                name: '90后'
-            }, {
-                value: 25,
-                name: '00后'
-            }, {
-                value: 18,
-                name: '60后'
-            }, ],
-            itemStyle: {
-                emphasis: {
-                    shadowBlur: 10,
-                    shadowOffsetX: 0,
-                    shadowColor: 'rgba(0, 0, 0, 0.5)'
-                }
-            }
-        }]
-    };
-
-    var word_list = [{
-        text: "主旋律",
-        weight: 5201,
-    }, {
-        text: "剧情",
-        weight: 4993,
-    }, {
-        text: "演技",
-        weight: 3008
-    }, {
-        text: "枪战",
-        weight: 2445
-    }, {
-        text: "动作",
-        weight: 4927
-    }, {
-        text: "场面",
-        weight: 3135
-    }, {
-        text: "国产",
-        weight: 5352
-    }, {
-        text: "节奏",
-        weight: 3076
-    }, {
-        text: "精彩",
-        weight: 2348
-    }, {
-        text: "情节",
-        weight: 2458
-    }, {
-        text: "演员",
-        weight: 2256
-    }, {
-        text: "故事",
-        weight: 2824
-    }, {
-        text: "动作片",
-        weight: 1131
-    }, {
-        text: "紧凑",
-        weight: 3069
-    }, {
-        text: "良心",
-        weight: 1567
-    }, {
-        text: "紧张",
-        weight: 2083
-    }, {
-        text: "很棒",
-        weight: 1022
-    }, {
-        text: "事件",
-        weight: 2303
-    }, {
-        text: "大片",
-        weight: 1805
-    }, {
-        text: "镜头",
-        weight: 1516
-    }, {
-        text: "毒品",
-        weight: 1164
-    }, {
-        text: "硬汉",
-        weight: 1066
-    }, {
-        text: "血腥",
-        weight: 877
-    }, {
-        text: "特效",
-        weight: 595
-    }, {
-        text: "拖沓",
-        weight: 500
-    }, {
-        text: "尴尬",
-        weight: 683
-    }, {
-        text: "诚意",
-        weight: 525
-    }];
-
-
-    ///////////////////////////////////////////////////////////////////////
-
-    $('.product-details').html('<h5>简介：</h5><p class="intro"></p>');
-    for (var i = 0; i < infor.content.length; ++i) {
-        if (infor.content[i].name === 'summary') {
-            $('.intro').html(infor.content[i].value);
-        } else if (infor.content[i].name === 'image') {
-            $('.product-image-large img').attr('src', infor.content[i].value);
-        } else if (infor.content[i].name === 'starname') {
-            $('.section-breadcrumbs h1').html(infor.content[i].value);
-            $('title').html('冠影 · PREMIER MOVIE - ' + infor.content[i].value);
-        } else {
-            $('#tab2 table').append('<tr><td>' + infor.content[i].name + '</td><td>' + infor.content[i].value + '</td></tr>')
         }
-    }
 
 
+        var tab1 = document.getElementById('tab1');
+        var bar_dom = document.getElementById('bar_dom');
 
-    var tab1 = document.getElementById('tab1');
-    var bar_dom = document.getElementById('bar_dom');
+        echarts.init(bar_dom).setOption(bar_stack_option, true);
+        $('#key_dom').jQCloud(word_list);
 
-    echarts.init(bar_dom).setOption(bar_stack_option, true);
-    $('#key_dom').jQCloud(word_list);
-
-
-    ///////////////////////////////////////////////////////////////////////
-    var pie2_dom = document.createElement('div');
-
-    tab1.appendChild(pie2_dom);
-
-    var pie2_Chart = echarts.init(pie2_dom);
-    pie2_Chart.setOption(pie2_option, true);
-
-    function randomData() {
-        return Math.round(Math.random() * 1000);
-    }
-    
+        function randomData() {
+            return Math.round(Math.random() * 1000);
+        }
+        

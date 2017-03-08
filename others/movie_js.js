@@ -28,7 +28,7 @@ let ia = [
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
-saveByMySql();
+saveByMySql('movie');
 
 function saveByMySql() {
     fs.readFile('movieList.txt', 'utf-8', (err, data) => {
@@ -40,7 +40,6 @@ function saveByMySql() {
                 queryByNameInMySql(item.replace(/(^\s*)|(\s*$)/g, ''), i++); //利用reg trim
             }
         });
-
     });
 }
 

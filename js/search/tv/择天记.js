@@ -1,225 +1,87 @@
 
  var infor = {"content":[{"name":"name","value":"择天记"},{"name":"导演","value":"钟澍佳"},{"name":"主演","value":"鹿晗 娜扎 吴倩 曾舜晞 "},{"name":"类型","value":"剧情 奇幻 古装"},{"name":"制片国家/地区","value":"中国大陆"},{"name":"上映日期","value":"2017"},{"name":"summary","value":"这是一个少年和他的小伙伴们逆天改命创造一个全新时代的热血故事。身世神秘的陈长生，在襁褓之中被师父计道人从黄金巨龙口中救下，收为关门弟子，传授道书三千卷。十九年后，陈长生得知自己六脉不通，命不过二十。计道人道周朝神都凌烟阁藏有上古神石，上或记载改名之法。长生遂决定下山一搏。因缘际会之下，陈长生抵挡住了种种势力的打压，迈过修行关隘，也结识了少年天才唐三十六、妖族公主落落、妖族武将轩辕破这些挚友，在他们的帮助下，长生在强手如林的“大朝试”中拔得头筹。进入神石碑陵后，一夜观尽陵前碑，引得天象震动。谁曾想，这一切只是开始，随着天下格局的变动，长生发现自己已然身不由己地卷入一场巨大的阴谋…….."},{"name":"评分","value":0},{"name":"image","value":"https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2437397821.jpg"},{"name":"id","value":"26614082"}]}
-
-    var bar_stack_option = {
-        title: {
-            //text: '',
-            //subtext: '纯属虚构',
-            x: 'left'
-        },
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: { // 坐标轴指示器，坐标轴触发有效
-                type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
-            }
-        },
-        legend: {
-            data: ['集播放量']
-        },
-        grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-        },
-        xAxis: [{
-            type: 'category',
-            data: ["09/30", "10/01", "10/02", "10/03", "10/04", "10/05", "10/06", "10/07", "10/08", "10/09", "10/10", "10/11", "10/12", "10/13", "10/14", "10/15", "10/16", "10/17", "10/18", "10/19", "10/20", "10/21", "10/22", "10/23", "10/24", "10/25", "10/26"]
-        }],
-        yAxis: [{
-            name: '集播放量',
-            type: 'value',
-        }],
-        series: [{
-            name: '集播放量',
-            type: 'bar',
-            data: [3898.2, 5972.9, 6539.0, 7285.2, 7706.9, 8606.3, 9112.5, 7997.5, 5177.8, 5150.5, 3700.9, 3295.5, 3023.2, 2737.1, 3727.9, 6218.4, 4915.5, 1988.2, 1811.4, 1680.2, 1435.6, 1246.6, 2410.7, 2085.0, 822.0, 819.7, 737.0]
-        }]
-    };
-
-
-    var pie2_option = {
-        title: {
-            text: '观众分析',
-            x: 'center'
-        },
-        tooltip: {
-            trigger: 'item',
-            formatter: "{b} : {c}%"
-        },
-        legend: {
-            orient: 'vertical',
-            left: 'left',
-            data: ['电影1']
-        },
-        series: [{
-            name: '性别比例',
-            type: 'pie',
-            radius: '50%',
-            center: ['20%', '60%'],
-            data: [{
-                value: 63.5,
-                name: '男性'
-            }, {
-                value: 36.5,
-                name: '女性'
+ 
+        var bar_stack_option = {
+            title: {
+                x: 'left'
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                    type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+                }
+            },
+            legend: {
+                data: ['热度变化', '百度指数', '评论数']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: [{
+                type: 'category',
+                data: ['2017-01-20','2017-01-21','2017-01-22','2017-01-23','2017-01-24','2017-01-25','2017-01-26','2017-01-27','2017-01-28','2017-01-29','2017-01-30','2017-01-31','2017-02-01','2017-02-02','2017-02-03','2017-02-04','2017-02-05','2017-02-06','2017-02-07','2017-02-08','2017-02-09','2017-02-10','2017-02-11','2017-02-12','2017-02-13','2017-02-14','2017-02-15','2017-02-16','2017-02-17','2017-02-18','2017-02-19','2017-02-20','2017-02-21','2017-02-22','2017-02-23','2017-02-24','2017-02-25','2017-02-26','2017-02-27','2017-02-28','2017-03-01','2017-03-02','2017-03-03','2017-03-04','2017-03-05']
             }],
-            itemStyle: {
-                emphasis: {
-                    shadowBlur: 10,
-                    shadowOffsetX: 0,
-                    shadowColor: 'rgba(0, 0, 0, 0.5)'
-                }
+            yAxis: [{
+                name: '热度',
+                type: 'value',
+            }, {
+                name: '评论数',
+                type: 'value',
+            }, {
+                name: '百度指数',
+                type: 'value',
+                offset: 65
+            }],
+            series: [{
+                name: '热度变化',
+                type: 'line',
+                data: []
+            }, {
+                name: '评论数',
+                type: 'line',
+                yAxisIndex: 1,
+                data: []
+            }, {
+                name: '百度指数',
+                type: 'line',
+                yAxisIndex: 2,
+                data: [348117,314364,311603,313409,350410,355717,315072,306330,306324,306004,302168,291709,299046,296462,296409,289676,281487,273862,278186,275299,289949,304124,325155,326425,312147,310177,307804,324104,312508,315172,349854,334160,331312,327553,324021,354193,322141,327612,316884,322060,368692,335052,330779,374224,390293]
+            }, ]
+        };
+
+        var word_list = [{"text":"甜甜","weight":0.9824944093289348},{"text":"景甜","weight":0.7721673377374244},{"text":"舒畅","weight":0.40256683586557307},{"text":"特效","weight":0.6948354622701364},{"text":"不错","weight":0.4387547008670015},{"text":"拖沓","weight":0.5375385383104964},{"text":"意外","weight":0.11511985592484797},{"text":"温柔","weight":0.3979537877642357},{"text":"甜美","weight":0.3123289292682111},{"text":"无聊","weight":0.2578824971801834},{"text":"厉害","weight":0.1015037764661844},{"text":"精致","weight":0.11356851500222535},{"text":"年轻","weight":0.043181018200826565},{"text":"骄傲","weight":0.05183391129997953},{"text":"一星","weight":0.10019862326907869},{"text":"尴尬","weight":0.3055300425424536},{"text":"很美","weight":0.2663898984909621},{"text":"漂亮","weight":0.21060584976164665},{"text":"诚意","weight":0.1983320997326361},{"text":"聪明","weight":0.1434854164953072},{"text":"宽厚","weight":0.12806032837681255},{"text":"良心","weight":0.14443151644985297},{"text":"新颖","weight":0.23295817780288905},{"text":"有趣","weight":0.09893222162758714},{"text":"富贵","weight":0.15965305349477465},{"text":"贫穷","weight":0.11915001558776446},{"text":"快乐","weight":0.24175269938075813},{"text":"鲜艳","weight":0.15893233590367145},{"text":"落差","weight":0.10663471068679016},{"text":"很大","weight":0.16110417441337407},{"text":"善良","weight":0.2549161389912803},{"text":"最爱","weight":0.006226571762025996},{"text":"完整","weight":0.019275406336697193},{"text":"美艳","weight":0.10202803179996417},{"text":"很俗","weight":0.08472231233126663},{"text":"演技","weight":0.41560999046481584},{"text":"剧情","weight":0.5336643237003218},{"text":"男主","weight":0.17618932861924205},{"text":"演员","weight":0.14928345775802215},{"text":"女主","weight":0.2662350403793685},{"text":"套路","weight":0.2935410648365414},{"text":"电视剧","weight":0.044319642763850746},{"text":"背景","weight":0.18099802298099907},{"text":"古装","weight":0.19227920504505022},{"text":"国产","weight":0.22568995940023298},{"text":"历史","weight":0.12079445744331632},{"text":"故事","weight":0.17688506727022682},{"text":"狗血","weight":0.019990946471761487},{"text":"台词","weight":0.15151644054227822},{"text":"智商","weight":0.11742027557579075},{"text":"用心","weight":0.008329846383534477},{"text":"水军","weight":0.07869782548702861},{"text":"编剧","weight":0.01945377999473561},{"text":"眼神","weight":0.017316406943093547},{"text":"角色","weight":0.054928358143604694},{"text":"老套","weight":0.06057060032530493},{"text":"人物","weight":0.024962282828256042},{"text":"颜值","weight":0.12941486683117537},{"text":"主角","weight":0.10613332428171411},{"text":"配角","weight":0.038360708002837515},{"text":"主演","weight":0.09193981121902293},{"text":"观众","weight":0.07246683481871163},{"text":"场景","weight":0.04324956770703353},{"text":"男女","weight":0.010309047866916112},{"text":"造型","weight":0.04334610359223342},{"text":"结局","weight":0.10230754560505202},{"text":"古装剧","weight":0.026899307957468848},{"text":"表情","weight":0.08378759943146279},{"text":"老戏骨","weight":0.11065197403835925},{"text":"珍珠","weight":0.042542361191626764},{"text":"","weight":null}];
+
+
+        ///////////////////////////////////////////////////////////////////////
+
+        $('.product-details').html('<h5>简介：</h5><p class="intro"></p>');
+        for (var i = 0; i < infor.content.length; ++i) {
+            if (infor.content[i].name === 'summary') {
+                $('.intro').html(infor.content[i].value);
+            } else if (infor.content[i].name === 'id') {
+                continue;
+            } else if (infor.content[i].name === 'image') {
+                $('.product-image-large img').attr('src', infor.content[i].value);
+            } else if (infor.content[i].name === 'name') {
+                $('.section-breadcrumbs h1').html(infor.content[i].value);
+                $('title').html('冠影 · PREMIER MOVIE - ' + infor.content[i].value);
+            } else {
+                if(infor.content[i].value != null)
+                $('#tab2 table').append('<tr><td>' + infor.content[i].name + '</td><td>' + infor.content[i].value + '</td></tr>')
             }
-        }, {
-            name: '年龄分布',
-            type: 'pie',
-            radius: ['35%', '50%'],
-            center: ['70%', '60%'],
-            data: [{
-                value: 5,
-                name: '70后'
-            }, {
-                value: 14,
-                name: '80后'
-            }, {
-                value: 26,
-                name: '90后'
-            }, {
-                value: 25,
-                name: '00后'
-            }, {
-                value: 18,
-                name: '60后'
-            }, ],
-            itemStyle: {
-                emphasis: {
-                    shadowBlur: 10,
-                    shadowOffsetX: 0,
-                    shadowColor: 'rgba(0, 0, 0, 0.5)'
-                }
-            }
-        }]
-    };
-
-    var word_list = [{
-        text: "主旋律",
-        weight: 5201,
-    }, {
-        text: "剧情",
-        weight: 4993,
-    }, {
-        text: "演技",
-        weight: 3008
-    }, {
-        text: "枪战",
-        weight: 2445
-    }, {
-        text: "动作",
-        weight: 4927
-    }, {
-        text: "场面",
-        weight: 3135
-    }, {
-        text: "国产",
-        weight: 5352
-    }, {
-        text: "节奏",
-        weight: 3076
-    }, {
-        text: "精彩",
-        weight: 2348
-    }, {
-        text: "情节",
-        weight: 2458
-    }, {
-        text: "演员",
-        weight: 2256
-    }, {
-        text: "故事",
-        weight: 2824
-    }, {
-        text: "动作片",
-        weight: 1131
-    }, {
-        text: "紧凑",
-        weight: 3069
-    }, {
-        text: "良心",
-        weight: 1567
-    }, {
-        text: "紧张",
-        weight: 2083
-    }, {
-        text: "很棒",
-        weight: 1022
-    }, {
-        text: "事件",
-        weight: 2303
-    }, {
-        text: "大片",
-        weight: 1805
-    }, {
-        text: "镜头",
-        weight: 1516
-    }, {
-        text: "毒品",
-        weight: 1164
-    }, {
-        text: "硬汉",
-        weight: 1066
-    }, {
-        text: "血腥",
-        weight: 877
-    }, {
-        text: "特效",
-        weight: 595
-    }, {
-        text: "拖沓",
-        weight: 500
-    }, {
-        text: "尴尬",
-        weight: 683
-    }, {
-        text: "诚意",
-        weight: 525
-    }];
-
-
-    ///////////////////////////////////////////////////////////////////////
-
-    $('.product-details').html('<h5>简介：</h5><p class="intro"></p>');
-    for (var i = 0; i < infor.content.length; ++i) {
-        if (infor.content[i].name === 'summary') {
-            $('.intro').html(infor.content[i].value);
-        } else if (infor.content[i].name === 'image') {
-            $('.product-image-large img').attr('src', infor.content[i].value);
-        } else if (infor.content[i].name === 'starname') {
-            $('.section-breadcrumbs h1').html(infor.content[i].value);
-            $('title').html('冠影 · PREMIER MOVIE - ' + infor.content[i].value);
-        } else {
-            $('#tab2 table').append('<tr><td>' + infor.content[i].name + '</td><td>' + infor.content[i].value + '</td></tr>')
         }
-    }
 
 
+        var tab1 = document.getElementById('tab1');
+        var bar_dom = document.getElementById('bar_dom');
 
-    var tab1 = document.getElementById('tab1');
-    var bar_dom = document.getElementById('bar_dom');
+        echarts.init(bar_dom).setOption(bar_stack_option, true);
+        $('#key_dom').jQCloud(word_list);
 
-    echarts.init(bar_dom).setOption(bar_stack_option, true);
-    $('#key_dom').jQCloud(word_list);
-
-
-    ///////////////////////////////////////////////////////////////////////
-    var pie2_dom = document.createElement('div');
-
-    tab1.appendChild(pie2_dom);
-
-    var pie2_Chart = echarts.init(pie2_dom);
-    pie2_Chart.setOption(pie2_option, true);
-
-    function randomData() {
-        return Math.round(Math.random() * 1000);
-    }
-    
+        function randomData() {
+            return Math.round(Math.random() * 1000);
+        }
+        
