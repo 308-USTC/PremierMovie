@@ -1,243 +1,87 @@
 
  var infor = {"content":[{"name":"name","value":"你的名字"},{"name":"导演","value":"新海诚,"},{"name":"编剧","value":"新海诚,"},{"name":"主演","value":"神木隆之介,上白石萌音,长泽雅美,市原悦子,成田凌,悠木碧,岛崎信长,石川界人,谷花音,"},{"name":"类型","value":"剧情,爱情,动画,"},{"name":"上映日期","value":"2016-12-02(中国大陆),2016-08-26(日本),"},{"name":"summary","value":"在远离大都会的小山村，住着巫女世家出身的高中女孩宫水三叶（上白石萌音 配音）。校园和家庭的原因本就让她充满烦恼，而近一段时间发生的奇怪事件，又让三叶摸不清头脑。不知从何时起，三叶在梦中就会变成一个住在东京的高中男孩。那里有陌生的同学和朋友，有亲切的前辈和繁华的街道，一切都是如此诱人而真实。另一方面，住在东京的高中男孩立花泷（神木隆之介 配音）则总在梦里来到陌生的小山村，以女孩子的身份过着全新的生活。许是受那颗神秘彗星的影响，立花和三叶在梦中交换了身份。他们以他者的角度体验着对方的人生，这期间有愤怒、有欢笑也有暖心。只是两人并不知道，身份交换的背后隐藏着重大而锥心的秘密……本片为2016年度日本本土影片票房冠军。"},{"name":"评分","value":8.5},{"name":"image","value":"https://img1.doubanio.com/view/movie_poster_cover/lpst/public/p2395733377.jpg"},{"name":"id","value":"26683290"}]}
  
-    var bar_stack_option = {
-        title: {
-            //text: '',
-            //subtext: '纯属虚构',
-            x: 'left'
-        },
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: { // 坐标轴指示器，坐标轴触发有效
-                type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
-            }
-        },
-        legend: {
-            data: ['热度变化', '百度指数', '评论数']
-        },
-        grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-        },
-        xAxis: [{
-            type: 'category',
-            data: ['2017-01-20','2017-01-21','2017-01-22','2017-01-23','2017-01-24','2017-01-25','2017-01-26','2017-01-27','2017-01-28','2017-01-29','2017-01-30','2017-01-31','2017-02-01','2017-02-02','2017-02-03','2017-02-04','2017-02-05','2017-02-06','2017-02-07','2017-02-08','2017-02-09','2017-02-10','2017-02-11','2017-02-12','2017-02-13','2017-02-14','2017-02-15','2017-02-16','2017-02-17','2017-02-18','2017-02-19','2017-02-20','2017-02-21','2017-02-22','2017-02-23','2017-02-24','2017-02-25','2017-02-26','2017-02-27','2017-02-28','2017-03-01']
-        }],
-        yAxis: [{
-            name: '热度',
-            type: 'value',
-        }, {
-            name: '评论数',
-            type: 'value',
-        }, {
-            name: '百度指数',
-            type: 'value',
-            offset: 65
-        }],
-        series: [{
-            name: '热度变化',
-            type: 'line',
-            data: [3898.2, 5972.9, 6539.0, 7285.2, 7706.9, 8606.3, 9112.5, 7997.5, 5177.8, 5150.5, 3700.9, 3295.5, 3023.2, 2737.1, 3727.9, 6218.4, 4915.5, 1988.2, 1811.4, 1680.2, 1435.6, 1246.6, 2410.7, 2085.0, 822.0, 819.7, 737.0]
-        }, {
-            name: '评论数',
-            type: 'line',
-            yAxisIndex: 1,
-            data: [2674, 4782, 5896, 6898, 7041, 7486, 7498, 7276, 6100, 4179, 3155, 2571, 2257, 1930, 2019, 3200, 3087, 1853, 1318, 1193, 985, 884, 1071, 1009, 878, 704, 213]
-        }, {
-            name: '百度指数',
-            type: 'line',
-            yAxisIndex: 2,
-            data: [57737,57572,58011,56632,55539,56545,55482,45581,60936,57396,56502,56121,57072,56071,53434,51087,51492,47558,48884,47417,44778,45167,44331,37368,27885,27027,26546,26394,31355,42390,37738,26212,25454,27034,27332,32477,43622,36790,23203,22451,22652]
-        }, ]
-    };
-
-
-    var pie2_option = {
-        title: {
-            text: '观众分析',
-            x: 'center'
-        },
-        tooltip: {
-            trigger: 'item',
-            formatter: "{b} : {c}%"
-        },
-        legend: {
-            orient: 'vertical',
-            left: 'left',
-            data: ['电影1']
-        },
-        series: [{
-            name: '性别比例',
-            type: 'pie',
-            radius: '50%',
-            center: ['20%', '60%'],
-            data: [{
-                value: 63.5,
-                name: '男性'
-            }, {
-                value: 36.5,
-                name: '女性'
+        var bar_stack_option = {
+            title: {
+                x: 'left'
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                    type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+                }
+            },
+            legend: {
+                data: ['热度变化', '百度指数', '评论数']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: [{
+                type: 'category',
+                data: ['2017-01-20','2017-01-21','2017-01-22','2017-01-23','2017-01-24','2017-01-25','2017-01-26','2017-01-27','2017-01-28','2017-01-29','2017-01-30','2017-01-31','2017-02-01','2017-02-02','2017-02-03','2017-02-04','2017-02-05','2017-02-06','2017-02-07','2017-02-08','2017-02-09','2017-02-10','2017-02-11','2017-02-12','2017-02-13','2017-02-14','2017-02-15','2017-02-16','2017-02-17','2017-02-18','2017-02-19','2017-02-20','2017-02-21','2017-02-22','2017-02-23','2017-02-24','2017-02-25','2017-02-26','2017-02-27','2017-02-28','2017-03-01','2017-03-02','2017-03-03','2017-03-04','2017-03-05']
             }],
-            itemStyle: {
-                emphasis: {
-                    shadowBlur: 10,
-                    shadowOffsetX: 0,
-                    shadowColor: 'rgba(0, 0, 0, 0.5)'
-                }
+            yAxis: [{
+                name: '热度',
+                type: 'value',
+            }, {
+                name: '评论数',
+                type: 'value',
+            }, {
+                name: '百度指数',
+                type: 'value',
+                offset: 65
+            }],
+            series: [{
+                name: '热度变化',
+                type: 'line',
+                data: []
+            }, {
+                name: '评论数',
+                type: 'line',
+                yAxisIndex: 1,
+                data: []
+            }, {
+                name: '百度指数',
+                type: 'line',
+                yAxisIndex: 2,
+                data: [57737,57572,58011,56632,55539,56545,55482,45581,60936,57396,56502,56121,57072,56071,53434,51087,51492,47558,0,47417,44778,45167,44331,37368,27885,27027,26546,26394,31355,42390,37738,26212,25454,27034,27332,32477,43622,36790,23203,22451,22652,21946,27973,42004,38010]
+            }, ]
+        };
+
+        var word_list = [{"text":"清新","weight":0.021405274438135006},{"text":"细腻","weight":0.01622795691635013},{"text":"紧凑","weight":0.015894073317038664},{"text":"唯美","weight":0.012696893832199104},{"text":"惊喜","weight":0.011872063334870635},{"text":"不错","weight":0.011694126076053104},{"text":"美好","weight":0.010741069834698266},{"text":"矫情","weight":0.009840189296946224},{"text":"细致","weight":0.0089366036915394},{"text":"成熟","weight":0.0089366036915394},{"text":"简单","weight":0.0089366036915394},{"text":"精美","weight":0.0089366036915394},{"text":"温柔","weight":0.007957346819520587},{"text":"成功","weight":0.007742755029069377},{"text":"单薄","weight":0.007068287159408955},{"text":"有趣","weight":0.006904018617310768},{"text":"忧郁","weight":0.006683347902687894},{"text":"流畅","weight":0.006637730485225734},{"text":"圆满","weight":0.006591216333785242},{"text":"遗憾","weight":0.00629203722991673},{"text":"澄澈","weight":0.006264472562113925},{"text":"有灵","weight":0.006129309284988819},{"text":"尊重","weight":0.006129309284988819},{"text":"純真","weight":0.006129309284988819},{"text":"最美","weight":0.006129309284988819},{"text":"壮丽","weight":0.006129309284988819},{"text":"神秘","weight":0.006129309284988819},{"text":"幸运","weight":0.006129309284988819},{"text":"坚韧","weight":0.006129309284988819},{"text":"神奇","weight":0.006129309284988819},{"text":"粗糙","weight":0.006129309284988819},{"text":"野蛮","weight":0.006129309284988819},{"text":"緊湊","weight":0.006129309284988819},{"text":"艱澀","weight":0.006129309284988819},{"text":"严严","weight":0.006129309284988819},{"text":"故事","weight":0.015062606174108302},{"text":"电影","weight":0.011326013686673256},{"text":"名字","weight":0.007749998043669586},{"text":"画面","weight":0.0074015524007237975},{"text":"剧情","weight":0.007055157553899502},{"text":"动画","weight":0.006953782252738558},{"text":"时间","weight":0.006111311709975798},{"text":"时空","weight":0.0060925050046420895},{"text":"爱情","weight":0.005201525088283816},{"text":"诚哥","weight":0.005049720053531446},{"text":"彗星","weight":0.0047453029906568914},{"text":"世界","weight":0.0046020594440498285},{"text":"作品","weight":0.004376865485146842},{"text":"结尾","weight":0.0038366871413853393},{"text":"身体","weight":0.0037742343340724216},{"text":"电影院","weight":0.0037425355915435407},{"text":"少女","weight":0.003406351180187762},{"text":"元素","weight":0.003239687914720112},{"text":"情节","weight":0.003223893539372071},{"text":"情感","weight":0.003118370493544015},{"text":"男女","weight":0.0030688983629043043},{"text":"细节","weight":0.0028528720769651185},{"text":"音乐","weight":0.0028143581053937396},{"text":"剧本","weight":0.002784468713608386},{"text":"感情","weight":0.0027534444314072357},{"text":"结局","weight":0.002745059395654117},{"text":"地方","weight":0.0026896127952335536},{"text":"画风","weight":0.002644664052113582},{"text":"影院","weight":0.002529230279599387},{"text":"灾难","weight":0.002378482522116363},{"text":"壁纸","weight":0.0023283497554945046},{"text":"票房","weight":0.0022533745265386146},{"text":"科幻","weight":0.002161025114255228},{"text":"男主","weight":0.0020875987436792336},{"text":"动画片","weight":0.002057640077881546},{"text":"","weight":null}];
+
+
+        ///////////////////////////////////////////////////////////////////////
+
+        $('.product-details').html('<h5>简介：</h5><p class="intro"></p>');
+        for (var i = 0; i < infor.content.length; ++i) {
+            if (infor.content[i].name === 'summary') {
+                $('.intro').html(infor.content[i].value);
+            } else if (infor.content[i].name === 'id') {
+                continue;
+            } else if (infor.content[i].name === 'image') {
+                $('.product-image-large img').attr('src', infor.content[i].value);
+            } else if (infor.content[i].name === 'name') {
+                $('.section-breadcrumbs h1').html(infor.content[i].value);
+                $('title').html('冠影 · PREMIER MOVIE - ' + infor.content[i].value);
+            } else {
+                if(infor.content[i].value != null)
+                $('#tab2 table').append('<tr><td>' + infor.content[i].name + '</td><td>' + infor.content[i].value + '</td></tr>')
             }
-        }, {
-            name: '年龄分布',
-            type: 'pie',
-            radius: ['35%', '50%'],
-            center: ['70%', '60%'],
-            data: [{
-                value: 5,
-                name: '70后'
-            }, {
-                value: 14,
-                name: '80后'
-            }, {
-                value: 26,
-                name: '90后'
-            }, {
-                value: 25,
-                name: '00后'
-            }, {
-                value: 18,
-                name: '60后'
-            }, ],
-            itemStyle: {
-                emphasis: {
-                    shadowBlur: 10,
-                    shadowOffsetX: 0,
-                    shadowColor: 'rgba(0, 0, 0, 0.5)'
-                }
-            }
-        }]
-    };
-
-    var word_list = [{
-        text: "主旋律",
-        weight: 5201,
-    }, {
-        text: "剧情",
-        weight: 4993,
-    }, {
-        text: "演技",
-        weight: 3008
-    }, {
-        text: "枪战",
-        weight: 2445
-    }, {
-        text: "动作",
-        weight: 4927
-    }, {
-        text: "场面",
-        weight: 3135
-    }, {
-        text: "国产",
-        weight: 5352
-    }, {
-        text: "节奏",
-        weight: 3076
-    }, {
-        text: "精彩",
-        weight: 2348
-    }, {
-        text: "情节",
-        weight: 2458
-    }, {
-        text: "演员",
-        weight: 2256
-    }, {
-        text: "故事",
-        weight: 2824
-    }, {
-        text: "动作片",
-        weight: 1131
-    }, {
-        text: "紧凑",
-        weight: 3069
-    }, {
-        text: "良心",
-        weight: 1567
-    }, {
-        text: "紧张",
-        weight: 2083
-    }, {
-        text: "很棒",
-        weight: 1022
-    }, {
-        text: "事件",
-        weight: 2303
-    }, {
-        text: "大片",
-        weight: 1805
-    }, {
-        text: "镜头",
-        weight: 1516
-    }, {
-        text: "毒品",
-        weight: 1164
-    }, {
-        text: "硬汉",
-        weight: 1066
-    }, {
-        text: "血腥",
-        weight: 877
-    }, {
-        text: "特效",
-        weight: 595
-    }, {
-        text: "拖沓",
-        weight: 500
-    }, {
-        text: "尴尬",
-        weight: 683
-    }, {
-        text: "诚意",
-        weight: 525
-    }];
-
-
-    ///////////////////////////////////////////////////////////////////////
-
-    $('.product-details').html('<h5>简介：</h5><p class="intro"></p>');
-    for (var i = 0; i < infor.content.length; ++i) {
-        if (infor.content[i].name === 'summary') {
-            $('.intro').html(infor.content[i].value);
-        } else if (infor.content[i].name === 'id') {
-            continue;
-        } else if (infor.content[i].name === 'image') {
-            $('.product-image-large img').attr('src', infor.content[i].value);
-        } else if (infor.content[i].name === 'name') {
-            $('.section-breadcrumbs h1').html(infor.content[i].value);
-            $('title').html('冠影 · PREMIER MOVIE - ' + infor.content[i].value);
-        } else {
-            if(infor.content[i].value != null)
-            $('#tab2 table').append('<tr><td>' + infor.content[i].name + '</td><td>' + infor.content[i].value + '</td></tr>')
         }
-    }
 
 
-    var tab1 = document.getElementById('tab1');
-    var bar_dom = document.getElementById('bar_dom');
+        var tab1 = document.getElementById('tab1');
+        var bar_dom = document.getElementById('bar_dom');
 
-    echarts.init(bar_dom).setOption(bar_stack_option, true);
-    $('#key_dom').jQCloud(word_list);
+        echarts.init(bar_dom).setOption(bar_stack_option, true);
+        $('#key_dom').jQCloud(word_list);
 
-    ///////////////////////////////////////////////////////////////////////
-    var pie2_dom = document.createElement('div');
-
-    tab1.appendChild(pie2_dom);
-
-    var pie2_Chart = echarts.init(pie2_dom);
-    pie2_Chart.setOption(pie2_option, true);
-
-    function randomData() {
-        return Math.round(Math.random() * 1000);
-    }
-    
+        function randomData() {
+            return Math.round(Math.random() * 1000);
+        }
+        

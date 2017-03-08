@@ -459,6 +459,12 @@ h5 {
     transition: all .3s linear 0s;
 }
 
+.top-link a.disabled {
+    pointer-events: none;
+    opacity: .65;
+    cursor: not-allowed;
+}
+
 .top-link a i {
     color: #00AEFF;
     font-size: 20px;

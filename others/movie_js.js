@@ -28,19 +28,23 @@ let ia = [
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
-// saveByMySql();
+saveByMySql();
 
 function saveByMySql() {
     fs.readFile('movieList.txt', 'utf-8', (err, data) => {
         let list = data.split('\r\n\r\n'); //将所有电影名单分割
+        let i = 0;
+        // console.log(list);
         list.forEach((item, index) => {
-            queryByNameInMySql(item, index);
+            if (item && i <= 39) { //当item存在时发起请求,同时不能使用index,否则个数会出错
+                queryByNameInMySql(item, i++);
+            }
         });
 
     });
 }
 
-queryByNameInMySql('朗读者', 0);
+// queryByNameInMySql('朗读者', 0);
 // 通过数据库获取数据, 传入名称和在排行榜中的位置(即从上到下的索引)
 function queryByNameInMySql(name, idx) {
     let connection = mysql.createConnection({
@@ -104,6 +108,7 @@ function queryByNameInMySql(name, idx) {
             wtjs(infor);
 
             // 按照位置
+            console.log('当前位置: ', idx, [Math.floor(idx / 10), idx % 10 + 1]);
             if (Math.floor(idx / 10) % 2 == 1) {
                 // ["排行", "片名", "主演", "导演", "类型", "评分"]
                 ia[Math.floor(idx / 10)][idx % 10 + 1] = [
@@ -187,9 +192,9 @@ function wtjs(infor) {
     let name = infor.content[0].value; // 生成单个js文件的关键为名字
     let datas = { date: [], trend: [], comnum: [], idx: [], keywords: [] }; // 所有数据详细, 分别为日期, 热度变化, 评论数, 百度指数, 热词键值对
 
-    // 读取关键字文件,
-    let kws = fs.readFileSync(path.join(__dirname, 'keywords-movie/' + name + 'keywords.txt'), 'utf-8');
-    if (kws) {
+    // 读取关键字文件, 检查文件是否存在
+    if (fs.existsSync(path.join(__dirname, 'keywords-movie/' + name + 'keywords.txt'))) {
+        let kws = fs.readFileSync(path.join(__dirname, 'keywords-movie/' + name + 'keywords.txt'), 'utf-8');
         let list = kws.split('\n');
         list.forEach((item, index) => {
             let kw = item.split(',');
@@ -252,12 +257,12 @@ function wtjs(infor) {
             series: [{
                 name: '热度变化',
                 type: 'line',
-                data: [` + dates.trend + `]
+                data: [` + datas.trend + `]
             }, {
                 name: '评论数',
                 type: 'line',
                 yAxisIndex: 1,
-                data: [` + dates.comnum + `]
+                data: [` + datas.comnum + `]
             }, {
                 name: '百度指数',
                 type: 'line',
