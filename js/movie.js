@@ -73,7 +73,11 @@ for (var k = 0; k < ia.length; ++k) {
         } else {
             var li = $(listr);
             li.find('span:first-child').html('<i class="rank-' + ((ia[k][i][0] > 3) ? 'other' : 'T3') + '">' + ia[k][i][0] + '</i>');
-            li.find('span:nth-child(2)').html('<a href="searchmovie.html?' + ia[k][i][1] + '" title="点击查看：' + ia[k][i][1] + '" target="_blank">' + ia[k][i][1] + '</a>');
+
+            if (ia[k][i][1] == '湄公河行动')
+                li.find('span:nth-child(2)').html('<a href="mghxd.html?' + ia[k][i][1] + '" title="点击查看：' + ia[k][i][1] + '" target="_blank">' + ia[k][i][1] + '</a>');
+            else
+                li.find('span:nth-child(2)').html('<a href="searchmovie.html?' + ia[k][i][1] + '" title="点击查看：' + ia[k][i][1] + '" target="_blank">' + ia[k][i][1] + '</a>');
 
             for (var j = 2; j < lilen; ++j) {
                 li.find('span:nth-child(' + (j + 1) + ')').html('<span title="' + ia[k][i][j] + '">' + ia[k][i][j] + '</span>');
@@ -93,5 +97,3 @@ $('.j-tab').hover(function() {
     $(this).siblings().removeClass('selected').end().addClass('selected');
     $('.j-for').removeClass('selected').eq($(this).index()).addClass('selected');
 });
-
-$('#movie > div > div:nth-child(2) > div > div > div > div > ol.chart-list.j-for.selected > li:nth-child(10) > span.t-2 > a').attr('src', 'mghxd.html')
