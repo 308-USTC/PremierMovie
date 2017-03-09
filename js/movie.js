@@ -93,3 +93,5 @@ $('.j-tab').hover(function() {
     $(this).siblings().removeClass('selected').end().addClass('selected');
     $('.j-for').removeClass('selected').eq($(this).index()).addClass('selected');
 });
+
+$('#movie > div > div:nth-child(2) > div > div > div > div > ol.chart-list.j-for.selected > li:nth-child(10) > span.t-2 > a').attr('src', 'mghxd.html')
