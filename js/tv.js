@@ -41,7 +41,19 @@ var ia = [
 ]
 
 var str = ['<li><span class="t-1">排行</span><span class="t-2">片名</span><span class="t-10">主演</span><span class="t-4">地区</span><span class="t-4">类型</span><span class="t-5">昨日新增</span><span class="t-6">走势</span></li>', '<li><span class="t-1">排行</span><span class="t-2">片名</span><span class="t-3">上榜天数</span><span class="t-4">最高排名</span> <span class="t-5">昨日新增</span><span class="t-6">走势</span></li>', '<li><span class="t-1">排行</span><span class="t-2">片名</span><span class="t-3">主演</span><span class="t-4">地区</span><span class="t-5">类型</span><span class="t-6">评分</span></li>'];
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+var ian = ia.length;
+var chartdata = $('.chart-data');
+var tabs = ['电视剧热播榜', '电视剧热议榜', '电视剧好评榜', '更新时间: 2017/02/23'];
 
+$('.heading-inner').html('<h2 class="sec-title"> <span>电影</span>排行榜</h2><p>' + tabs.join(' , ') + '</p>');
+
+chartdata.find('.charts-kinds').find('a').html(tabs[0]);
+for (var i = 1; i < ian; ++i) {
+    chartdata.append('<ol class="chart-list j-for"></ol>').find('.charts-kinds').append('<a href="javascript:;"class="j-tab">' + tabs[i] + '<i class="ic i-selected"></i></a>');
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 for (var k = 0; k < ia.length; ++k) {
     var listr = str[k];
     for (var i = 0; i < ia[k].length; ++i) {
@@ -55,7 +67,7 @@ for (var k = 0; k < ia.length; ++k) {
         } else {
             var li = $(listr);
             li.find('span:first-child').html('<i class="rank-' + ((ia[k][i][0] > 3) ? 'other' : 'T3') + '">' + ia[k][i][0] + '</i>');
-            li.find('span:nth-child(2)').html('<a href="searchtv.html?' + ia[k][i][1] + '" title="点击查看：' + ia[k][i][1] + '" target="_blank">' + ia[k][i][1] + '</a>');
+            li.find('span:nth-child(2)').html('<a href="search.html?tv/' + ia[k][i][1] + '" title="点击查看：' + ia[k][i][1] + '" target="_blank">' + ia[k][i][1] + '</a>');
 
             for (var j = 2; j < lilen; ++j) {
                 li.find('span:nth-child(' + (j + 1) + ')').html(ia[k][i][j]);
@@ -68,3 +80,10 @@ for (var k = 0; k < ia.length; ++k) {
         }
     }
 }
+$('.j-tab').hover(function() {
+    if ($(this).hasClass('selected')) {
+        return false;
+    }
+    $(this).siblings().removeClass('selected').end().addClass('selected');
+    $('.j-for').removeClass('selected').eq($(this).index()).addClass('selected');
+});
