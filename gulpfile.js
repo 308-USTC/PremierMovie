@@ -7,6 +7,16 @@ var imagemin = require('gulp-imagemin');
 var imageminOptipng = require('imagemin-optipng');
 var pngquant = require('imagemin-pngquant');
 
+//////////////////////////////////////////////////
+// 本地模块
+var makeHTML = require('./others/hbs/hbs.js')
+//////////////////////////////////////////////////
+
+gulp.task('makeHTML',()=>{
+    makeHTML();
+});
+
+
 gulp.task('mini-index', () => {
     gulp.src('index.html')
         .pipe(minifyHtml())

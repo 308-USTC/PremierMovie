@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     
-    <link rel="stylesheet" href="css/style.css?326">
+    <link rel="stylesheet" href="css/style.css?282">
     
 </head>
 
@@ -36,9 +36,9 @@
                     <div class="collapse navbar-collapse clearfix navMenu" role="navigation">
                         <ul class="nav navbar-nav navbar-right">
                             <li class="active"><a class="page-scroll" href="#header">主页</a></li>
-                            <li><a class="page-scroll" href="#feature">核心技术</a></li>
-                            <li><a class="page-scroll" href="#overview">产品服务</a></li>
-                            <li><a class="page-scroll" href="#contact">联系我们</a></li>
+                            <li><a class="page-scroll" href="index.html#feature">核心技术</a></li>
+                            <li><a class="page-scroll" href="index.html#overview">产品服务</a></li>
+                            <li><a class="page-scroll" href="index.html#contact">联系我们</a></li>
                         </ul>
                     </div>
                     <!--/ Navigation end -->
@@ -235,6 +235,16 @@
     <!-- End Back To Top Button -->
 
     <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+    // scroll body to 0px on click
+    $('body').on('click','#back-top',function() {
+        // $('#back-top a').tooltip('hide');
+        $('body,html').animate({
+            scrollTop: 0
+        }, 800);
+        return false;
+    });
+    </script>
     
 </body>
 

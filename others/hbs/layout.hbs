@@ -34,9 +34,9 @@
                     <div class="collapse navbar-collapse clearfix navMenu" role="navigation">
                         <ul class="nav navbar-nav navbar-right">
                             <li class="active"><a class="page-scroll" href="#header">主页</a></li>
-                            <li><a class="page-scroll" href="#feature">核心技术</a></li>
-                            <li><a class="page-scroll" href="#overview">产品服务</a></li>
-                            <li><a class="page-scroll" href="#contact">联系我们</a></li>
+                            <li><a class="page-scroll" href="index.html#feature">核心技术</a></li>
+                            <li><a class="page-scroll" href="index.html#overview">产品服务</a></li>
+                            <li><a class="page-scroll" href="index.html#contact">联系我们</a></li>
                         </ul>
                     </div>
                     <!--/ Navigation end -->
@@ -67,8 +67,8 @@
                         </a>
                         <ul class="footer-socail list-inline">
                             <li>合作伙伴:</li>
-                            <li><a href="http://www.suftv.shu.edu.cn/"><img class="img-responsive" src="images/shulogo.png" alt="上海电影学院"></a></li>
-                            <li><a href="http://www.crifst.ac.cn/">中国电影科学技术研究所</a></li>
+                            <li><a href="http://www.suftv.shu.edu.cn/"><img class="img-responsive" src="images/shulogo.png" title="上海电影学院"></a></li>
+                            <li><a href="http://www.crifst.ac.cn/"><img class="img-responsive" src="images/crifst.jpg" title="中国电影科学技术研究所"  style="transform: translate(0, 25%);"></a></li>
                         </ul>
                     </div>
                     <hr>
@@ -94,6 +94,16 @@
     <!-- End Back To Top Button -->
 
     <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+    // scroll body to 0px on click
+    $('body').on('click','#back-top',function() {
+        // $('#back-top a').tooltip('hide');
+        $('body,html').animate({
+            scrollTop: 0
+        }, 800);
+        return false;
+    });
+    </script>
     {{{scripts}}}
 </body>
 
