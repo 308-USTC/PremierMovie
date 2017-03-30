@@ -150,21 +150,9 @@
     zoom: 1
 }
 
-.charts-kinds a .i-selected {
-    position: absolute;
-    top: 22px;
-    left: 50%;
-    display: none;
-    margin-left: -10px
-}
-
 .charts-kinds a.selected {
     background: #93bff0;
     color: #fff
-}
-
-.charts-kinds a.selected .i-selected {
-    display: block
 }
 
 .chart-list {

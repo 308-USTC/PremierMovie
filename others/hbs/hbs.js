@@ -45,7 +45,7 @@ function makeHTML() {
     <link rel="stylesheet" href="css/top-charts.css?` + dateStamp + `">
     `,
         scripts: `
-    <script src="http://cdn.bootcss.com/handlebars.js/4.0.6/handlebars.amd.min.js"></script>
+    <script src="http://cdn.bootcss.com/handlebars.js/4.0.6/handlebars.min.js"></script>
     <script>
         var hash = window.location.search;
         var oScript = document.createElement('script');
@@ -75,7 +75,7 @@ function makeHTML() {
     <!--<script src="js/cityInfo.js"></script>-->
     <script src="http://cdn.bootcss.com/jqcloud/1.0.4/jqcloud-1.0.4.min.js"></script>
     <script src="http://cdn.bootcss.com/echarts/3.2.3/echarts.min.js"></script>
-    <script src="http://cdn.bootcss.com/handlebars.js/4.0.6/handlebars.amd.min.js"></script>
+    <script src="http://cdn.bootcss.com/handlebars.js/4.0.6/handlebars.min.js"></script>
     <script src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
     <script src="js/worldcloud.js"></script>
     <script>
