@@ -51,88 +51,49 @@ chart.html(`<div class="charts-kinds">
 <a href="javascript:;" class="j-tab">电视剧好评榜</a>
 </div>`);
 
-Handlebars.registerHelper('selected', function(idx, opt){
-    if(idx === 0) return 'selected';
+Handlebars.registerHelper('selected', function(idx, opt) {
+    if (idx === 0) return 'selected';
 });
 
-Handlebars.registerHelper('rank', function(idx, opt){
-    if(idx === '排行') return idx;
-    if(idx <= 3) return '<i class="rank-T3">'+idx+'</i>';
-    return '<i class="rank-other">'+idx+'</i>';
+Handlebars.registerHelper('rank', function(idx, opt) {
+    if (idx === '排行') return idx;
+    if (idx <= 3) return '<i class="rank-T3">' + idx + '</i>';
+    return '<i class="rank-other">' + idx + '</i>';
 });
 
 var lastIdx;
-Handlebars.registerHelper('index', function(idx, opt){
-    if( !parseInt(idx) ) {
+Handlebars.registerHelper('index', function(idx, opt) {
+    if (!parseInt(idx)) {
         lastIdx = 100000;
         return idx;
     }
-    if(idx < 10) return idx; // 针对评分
-    
-    lastIdx = lastIdx - Math.floor( Math.random()*lastIdx/2 ) ;
+    if (idx < 10) return idx; // 针对评分
+
+    lastIdx = lastIdx - Math.floor(Math.random() * lastIdx / 2);
     return lastIdx;
 });
 
-Handlebars.registerHelper('status', function(val, opt){
-    if(!val) return;
-    if(!parseInt(val)) return val;
-    if(val > 0) return '<span class="up"> + '+ Math.floor(Math.random()*1000) +'</span>';
-    return '<span class="down"> - '+  Math.floor(Math.random()*1000)  +'</span>'
+Handlebars.registerHelper('status', function(val, opt) {
+    if (!val) return;
+    if (!parseInt(val)) return val;
+    if (val > 0) return '<span class="up"> + ' + Math.floor(Math.random() * 1000) + '</span>';
+    return '<span class="down"> - ' + Math.floor(Math.random() * 1000) + '</span>'
 });
 
 var olstr =
-`
-<style>
-.t-2 {
-        width: 160px;
-}
-.t-10 {
-    width: 200px;
-}
-.t-5 {
-    text-align: center;
-}
-.t-6 {
-    width: 60px !important;
-}
-
-/* Small Devices, Tablets */
-
-@media (max-width: 991px) {
-    .charts-content {
-        margin-left: 0;
-        width: 100%;
-    }
-}
-
-@media (min-width: 414px) and  (max-width: 767px) {
-    .charts-content .t-4 {
-        display: none;
-    }
-}
-
-/* Custom, iPhone Retina */
-
-@media (max-width: 414px) {
-    .charts-content .t-4,.charts-content .t-6 ,.charts-content .t-10{
-        display: none;
-    }
-}
-
-</style>
-
+    `
 {{#each this}}
 <ol class="chart-list j-for {{#selected @index}}{{/selected}}">
     {{#with this}}
         {{#each this}}
         <li>
-            <span class="t-1"> {{#rank this.[0]}}{{/rank}} </span>
+            <span class="t-1 text-center"> {{#rank this.[0]}}{{/rank}} </span>
             <span class="t-2"> <a href="search.html?tv/{{ this.[1] }}" title="点击查看：{{ this.[1] }}" target="_blank"> {{ this.[1] }} </a></span>
-            <span class="t-10">{{ this.[2] }}</span>
-            <span class="t-4">{{ this.[3] }}</span>
-            <span class="t-4" style="width: 80px;">{{ this.[4] }}</span>
-            <span class="t-5">{{#index this.[5]}}{{/index}}</span>
-            <span class="t-6"> {{#status this.[6]}}{{/status}} </span>
+            <span class="t-3">{{ this.[2] }}</span>
+            <span class="t-4 text-center">{{ this.[3] }}</span>
+            <span class="t-5">{{ this.[4] }}</span>
+            <span class="t-6 text-center">{{#index this.[5]}}{{/index}}</span>
+            <span class="t-7 text-center">{{#status this.[6]}}{{/status}} </span>
         </li>
         {{/each}}
     {{/with}}

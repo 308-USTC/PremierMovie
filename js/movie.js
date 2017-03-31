@@ -110,42 +110,12 @@ Handlebars.registerHelper('status', function(val, opt){
 var olstr =
 `
 <style>
-.t-2 {
-        width: 110px;
+.t-2 , .t-5 {
+        width: 130px;
 }
 .t-4 {
         width: 90px;
 }
-.t-5 {
-    text-align: center;
-}
-.t-6 {
-    width: 60px !important;
-}
-
-/* Small Devices, Tablets */
-
-@media (max-width: 991px) {
-    .charts-content {
-        margin-left: 0;
-        width: 100%;
-    }
-}
-
-@media (min-width: 414px) and  (max-width: 767px) {
-    .charts-content .t-4 {
-        display: none;
-    }
-}
-
-/* Custom, iPhone Retina */
-
-@media (max-width: 414px) {
-    .charts-content .t-4,.charts-content .t-6 ,.charts-content .t-10{
-        display: none;
-    }
-}
-
 </style>
 
 {{#each this}}
@@ -155,11 +125,11 @@ var olstr =
         <li>
             <span class="t-1"> {{#rank this.[0]}}{{/rank}} </span>
             <span class="t-2"> <a href="search.html?movie/{{ this.[1] }}" title="点击查看：{{ this.[1] }}" target="_blank"> {{ this.[1] }} </a></span>
-            <span class="t-10">{{ this.[2] }}</span>
+            <span class="t-3">{{ this.[2] }}</span>
             <span class="t-4">{{ this.[3] }}</span>
-            <span class="t-4" style="width: 110px;">{{ this.[4] }}</span>
-            <span class="t-5">{{#index this.[5]}}{{/index}}</span>
-            <span class="t-6"> {{#status this.[6]}}{{/status}} </span>
+            <span class="t-5">{{ this.[4] }}</span>
+            <span class="t-6 text-center">{{#index this.[5]}}{{/index}}</span>
+            <span class="t-7 text-center"> {{#status this.[6]}}{{/status}} </span>
         </li>
         {{/each}}
     {{/with}}
