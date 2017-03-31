@@ -1,6 +1,6 @@
 var ia = [
     [
-        ["排行", "片名", "主演", "地区", "类型", "热播指数", "走势"],
+        ["排行", "片名", "主演", "地区", "类型", "热播指数", "同比上期"],
         [1, "三生三世十里桃花", "杨幂 赵又廷 张智尧 迪丽热巴 ", "大陆", "爱情", 9461269, 5],
         [2, "大唐荣耀", "景甜 任嘉伦 万茜 舒畅 ", "大陆", "爱情 古装", 2637142, -3],
         [3, "大秦帝国之崛起", "宁静 张博 邢佳栋 杨志刚 ", "大陆", "历史", 6010985, -3],
@@ -13,7 +13,7 @@ var ia = [
         [10, "大明王朝1566", "陈宝国 黄志忠 倪大红 王庆祥 ", "大陆", "历史", 9316006, 5]
     ],
     [
-        ["排行", "片名", "主演", "地区", "类型", "热评指数", "走势"],
+        ["排行", "片名", "主演", "地区", "类型", "热评指数", "同比上期"],
         [1, "三生三世十里桃花", "杨幂 赵又廷 张智尧 迪丽热巴 ", "大陆", "爱情", 9461269, 5],
         [2, "大唐荣耀", "景甜 任嘉伦 万茜 舒畅 ", "大陆", "爱情 古装", 2637142, -3],
         [3, "大秦帝国之崛起", "宁静 张博 邢佳栋 杨志刚 ", "大陆", "历史", 6010985, -3],
@@ -38,28 +38,12 @@ var ia = [
         [9, "云巅之上", "陈晓 袁姗姗 张哲瀚 米热 ", "大陆", "爱情", 6.3],
         [10, "热血长安", "徐海乔 鞠婧祎 程小蒙 刘冠麟 ", "大陆", "悬疑 古装", 6]
     ]
-
-
-    // [
-    //     ["排行", "片名", "上榜天数", "最高排名", "昨日新增", "走势"],
-    //     [1, "三生三世十里桃花", "29天", "Top1", 4425377, 5],
-    //     [2, "大唐荣耀", "1天", "Top1", 8360196, -3],
-    //     [3, "大秦帝国之崛起", "38天", "Top2", 594601, 5],
-    //     [4, "射雕英雄传", "16天", "Top3", 1816507, -3],
-    //     [5, "半妖倾城", "29天", "Top2", 2872433, -3],
-    //     [6, "奇星记之鲜衣怒马少年时", "76天", "Top3", 8855771, -3],
-    //     [7, "奇星记之鲜衣怒马少年时", "10天", "Top5", 8354391, 5],
-    //     [8, "择天记", "20天", "Top3", 4831369, 5],
-    //     [9, "周末父母", "83天", "Top5", 5122611, 5],
-    //     [10, "云巅之上", "29天", "Top2", 7247704, -3]
-    // ],
 ]
 
 var title = $('#sec-title');
 var chart = $('#chart-data');
-
 // 替换标题和时间
-title.html('<span>电视剧</span>排行榜TOP20').parent().append('<p> 更新时间: 2017/02/23 </p>');
+title.html('<span>电视剧</span>排行榜TOP10').parent().append('<p> 更新时间: 2017/03/15 </p>');
 // 替换tab
 chart.html(`<div class="charts-kinds">
 <a href="javascript:;" class="j-tab selected">电视剧热播榜</a>
@@ -72,29 +56,59 @@ Handlebars.registerHelper('selected', function(idx, opt){
 });
 
 Handlebars.registerHelper('rank', function(idx, opt){
-    if(idx <= 3) return 'T3';
-    return 'other';
+    if(idx === '排行') return idx;
+    if(idx <= 3) return '<i class="rank-T3">'+idx+'</i>';
+    return '<i class="rank-other">'+idx+'</i>';
+});
+
+var lastIdx;
+Handlebars.registerHelper('index', function(idx, opt){
+    if( !parseInt(idx) ) {
+        lastIdx = 100000;
+        return idx;
+    }
+    if(idx < 10) return idx; // 针对评分
+    
+    lastIdx = lastIdx - Math.floor( Math.random()*lastIdx/2 ) ;
+    return lastIdx;
 });
 
 Handlebars.registerHelper('status', function(val, opt){
-    if(val > 0) return 'up';
-    return 'down';
+    if(!val) return;
+    if(!parseInt(val)) return val;
+    if(val > 0) return '<span class="up"> + '+ Math.floor(Math.random()*1000) +'</span>';
+    return '<span class="down"> - '+  Math.floor(Math.random()*1000)  +'</span>'
 });
 
 var olstr =
 `
+<style>
+.t-2 {
+        width: 160px;
+}
+.t-10 {
+    width: 200px;
+}
+.t-5 {
+    text-align: center;
+}
+.t-6 {
+    width: 60px !important;
+}
+</style>
+
 {{#each this}}
 <ol class="chart-list j-for {{#selected @index}}{{/selected}}">
     {{#with this}}
         {{#each this}}
         <li>
-            <span class="t-1"> <i class="rank-{{#rank this.[0]}}{{/rank}}"> {{ this.[0] }} </i></span>
+            <span class="t-1"> {{#rank this.[0]}}{{/rank}} </span>
             <span class="t-2"> <a href="search.html?tv/{{ this.[1] }}" title="点击查看：{{ this.[1] }}" target="_blank"> {{ this.[1] }} </a></span>
             <span class="t-10">{{ this.[2] }}</span>
             <span class="t-4">{{ this.[3] }}</span>
-            <span class="t-4">{{ this.[4] }}</span>
-            <span class="t-5">{{ this.[5] }}</span>
-            <span class="t-6 {{#status this.[6]}}{{/status}}">{{ this.[6] }}</span>
+            <span class="t-4" style="width: 80px;">{{ this.[4] }}</span>
+            <span class="t-5">{{#index this.[5]}}{{/index}}</span>
+            <span class="t-6"> {{#status this.[6]}}{{/status}} </span>
         </li>
         {{/each}}
     {{/with}}
@@ -104,7 +118,6 @@ var olstr =
 
 var template = Handlebars.compile(olstr);
 var allstr = template(ia);
-// console.log(allstr);
 chart.append(allstr);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
