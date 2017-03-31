@@ -122,6 +122,30 @@ var olstr =
 .t-6 {
     width: 60px !important;
 }
+
+/* Small Devices, Tablets */
+
+@media (max-width: 991px) {
+    .charts-content {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+@media (min-width: 414px) and  (max-width: 767px) {
+    .charts-content .t-4 {
+        display: none;
+    }
+}
+
+/* Custom, iPhone Retina */
+
+@media (max-width: 414px) {
+    .charts-content .t-4,.charts-content .t-6 ,.charts-content .t-10{
+        display: none;
+    }
+}
+
 </style>
 
 {{#each this}}

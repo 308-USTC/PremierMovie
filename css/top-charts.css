@@ -19,7 +19,7 @@
 }*/
 
 .charts-box {
-    width: 980px;
+    width: 100%;
     margin: 0 auto;
     position: relative;
     zoom: 1
@@ -237,9 +237,9 @@
     margin-right: 4px
 }
 
-.t-4 {
+/*.t-4 {
     width: 48px
-}
+}*/
 
 .t-5 {
     width: 76px
