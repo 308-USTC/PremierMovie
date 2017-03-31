@@ -126,7 +126,7 @@ var olstr =
         {{#each this}}
         <li>
             <span class="t-1"> {{#rank this.[0]}}{{/rank}} </span>
-            <span class="t-2"> <a href="search.html?tv/{{ this.[1] }}" title="点击查看：{{ this.[1] }}" target="_blank"> {{ this.[1] }} </a></span>
+            <span class="t-2"> <a href="search.html?show/{{ this.[1] }}" title="点击查看：{{ this.[1] }}" target="_blank"> {{ this.[1] }} </a></span>
             <span class="t-10">{{ this.[2] }}</span>
             <span class="t-4">{{ this.[3] }}</span>
             <span class="t-5">{{#index this.[4]}}{{/index}}</span>
