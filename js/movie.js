@@ -62,8 +62,8 @@ title.html('<span>电影</span>排行榜TOP10').parent().append('<p> 更新时�
 // 替换tab
 chart.html(`<div class="charts-kinds">
 <a href="javascript:;" class="j-tab selected">电影影响力榜</a>
-<a href="javascript:;" class="j-tab">电影热议榜</a>
 <a href="javascript:;" class="j-tab">电影好评榜</a>
+<a href="javascript:;" class="j-tab">电影热议榜</a>
 <a href="javascript:;" class="j-tab">本月票房排行</a>
 </div>`);
 
@@ -115,6 +115,11 @@ var olstr =
 }
 .t-4 {
         width: 90px;
+}
+@media (max-width: 767px) {
+    .chart-list .t-5 {
+        display: none;
+    }
 }
 </style>
 

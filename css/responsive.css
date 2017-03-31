@@ -13,7 +13,7 @@
 
 /* Medium Devices, Desktops */
 
-@media (min-width: 992px) and (max-width: 1200px) {
+@media (max-width: 1200px) {
     .top-link {
         margin-top: 0;
     }
@@ -58,12 +58,6 @@
     }
     .top-link li {
         margin-bottom: 38px;
-    }
-}
-
-@media  (max-width: 533px) {
-    .top-link {
-        margin-top: 0; 
     }
 }
 @media  (max-width: 413px) {
