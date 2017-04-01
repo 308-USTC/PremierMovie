@@ -58,12 +58,7 @@ var chart = $('#chart-data');
 // 替换标题和时间
 title.html('<span>明星</span>排行榜TOP10').parent().append('<p> 更新时间: 2017/03/15 </p>');
 // 替换tab
-chart.html(`<div class="charts-kinds">
-<a href="javascript:;" class="j-tab selected">热度变化</a>
-<a href="javascript:;" class="j-tab">商业价值</a>
-<a href="javascript:;" class="j-tab">媒体关注度</a>
-<a href="javascript:;" class="j-tab">票房号召力</a>
-</div>`);
+chart.html('<div class="charts-kinds"><a href="javascript:;"class="j-tab selected">热度变化</a><a href="javascript:;"class="j-tab">商业价值</a><a href="javascript:;"class="j-tab">媒体关注度</a><a href="javascript:;"class="j-tab">票房号召力</a></div>');
 
 Handlebars.registerHelper('selected', function(idx, opt){
     if(idx === 0) return 'selected';
@@ -96,45 +91,7 @@ Handlebars.registerHelper('status', function(val, opt){
     return '<span class="down"> - '+  Math.floor(Math.random()*1000)  +'</span>'
 });
 
-var olstr =
-`
-<style>
-.t-2 {
-        width: 80px;
-}
-.t-3 {
-    width: 300px;
-}
-.chart-list:nth-of-type(4) .t-5{
-    width: 100px;
-}
-.t-6{
-    width: 120px;
-}
-
-@media (max-width: 767px) {
-    .chart-list .t-4 {
-        display: inline-block;
-    }
-}
-</style>
-
-{{#each this}}
-<ol class="chart-list j-for {{#selected @index}}{{/selected}}">
-    {{#with this}}
-        {{#each this}}
-        <li>
-            <span class="t-1"> {{#rank this.[0]}}{{/rank}} </span>
-            <span class="t-2"> <a href="search.html?star/{{ this.[1] }}" title="点击查看：{{ this.[1] }}" target="_blank"> {{ this.[1] }} </a></span>
-            <span class="t-3">{{ this.[2] }}</span>
-            <span class="t-4 text-center">{{#index this.[3]}}{{/index}} </span>
-            <span class="t-5 text-center">{{#status this.[4]}}{{/status}}</span>
-        </li>
-        {{/each}}
-    {{/with}}
-</ol>
-{{/each}}
-`
+var olstr ='<style>.t-2{width:80px}.t-3{width:300px}.chart-list:nth-of-type(4).t-5{width:100px}.t-6{width:120px}@media(max-width:767px){.chart-list.t-4{display:inline-block}}</style>{{#each this}}<ol class="chart-list j-for {{#selected @index}}{{/selected}}">{{#with this}}{{#each this}}<li><span class="t-1">{{#rank this.[0]}}{{/rank}}</span><span class="t-2"><a href="search.html?star/{{ this.[1] }}"title="点击查看：{{ this.[1] }}"target="_blank">{{this.[1]}}</a></span><span class="t-3">{{this.[2]}}</span><span class="t-4 text-center">{{#index this.[3]}}{{/index}}</span><span class="t-5 text-center">{{#status this.[4]}}{{/status}}</span></li>{{/each}} {{/with}}</ol>{{/each}}'
 
 var template = Handlebars.compile(olstr);
 var allstr = template(ia);

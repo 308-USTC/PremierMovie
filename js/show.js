@@ -46,11 +46,7 @@ var chart = $('#chart-data');
 // 替换标题和时间
 title.html('<span>综艺</span>排行榜TOP10').parent().append('<p> 更新时间: 2017/03/15 </p>');
 // 替换tab 
-chart.html(`<div class="charts-kinds">
-<a href="javascript:;" class="j-tab selected">综艺热播榜</a>
-<a href="javascript:;" class="j-tab">综艺热议榜</a>
-<a href="javascript:;" class="j-tab">综艺好评榜</a>
-</div>`);
+chart.html('<div class="charts-kinds"><a href="javascript:;" class="j-tab selected">综艺热播榜</a><a href="javascript:;" class="j-tab">综艺热议榜</a><a href="javascript:;" class="j-tab">综艺好评榜</a></div>');
 
 Handlebars.registerHelper('selected', function(idx, opt){
     if(idx === 0) return 'selected';
@@ -81,50 +77,8 @@ Handlebars.registerHelper('status', function(val, opt){
     return '<span class="down"> - '+  Math.floor(Math.random()*1000)  +'</span>'
 });
 
-var olstr =
-`
-<style>
-.t-2 {
-        width: 140px;
-}
-.t-3 {
-    width: 320px;
-}
-.t-4 {
-        width: 110px;
-}
-.t-5 {
-    text-align: center;
-}
-.t-6 {
-    width: 60px;
-}
+var olstr ='<style>.t-2{width:140px}.t-3{width:320px}.t-4{width:110px}.t-5{text-align:center}.t-6{width:60px}@media(max-width:767px){.charts-content.t-4,.charts-content.t-3{display:none}}</style>{{#each this}}<ol class="chart-list j-for {{#selected @index}}{{/selected}}">{{#with this}}{{#each this}}<li><span class="t-1">{{#rank this.[0]}}{{/rank}} </span><span class="t-2"><a href="search.html?show/{{ this.[1] }}"title="点击查看：{{ this.[1] }}"target="_blank">{{this.[1]}}</a></span><span class="t-3">{{this.[2]}}</span><span class="t-4">{{this.[3]}}</span><span class="t-5 text-center">{{#index this.[4]}}{{/index}}</span><span class="t-6 text-center">{{#status this.[5]}}{{/status}} </span></li>{{/each}}{{/with}}</ol>{{/each}}'
 
-@media (max-width: 767px) {
-    .charts-content .t-4,.charts-content .t-3{
-        display: none;
-    }
-}
-
-</style>
-
-{{#each this}}
-<ol class="chart-list j-for {{#selected @index}}{{/selected}}">
-    {{#with this}}
-        {{#each this}}
-        <li>
-            <span class="t-1"> {{#rank this.[0]}}{{/rank}} </span>
-            <span class="t-2"> <a href="search.html?show/{{ this.[1] }}" title="点击查看：{{ this.[1] }}" target="_blank"> {{ this.[1] }} </a></span>
-            <span class="t-3">{{ this.[2] }}</span>
-            <span class="t-4">{{ this.[3] }}</span>
-            <span class="t-5 text-center">{{#index this.[4]}}{{/index}}</span>
-            <span class="t-6 text-center"> {{#status this.[5]}}{{/status}} </span>
-        </li>
-        {{/each}}
-    {{/with}}
-</ol>
-{{/each}}
-`
 
 var template = Handlebars.compile(olstr);
 var allstr = template(ia);
