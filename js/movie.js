@@ -109,60 +109,6 @@ chart.append(allstr);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// var str = [
-//     '<li><span class="t-1">排行</span><span class="t-2">片名</span><span class="t-10">主演</span><span class="t-4">导演</span><span class="t-4">类型</span><span class="t-5">昨日新增</span><span class="t-6">走势</span></li>',
-//     '<li><span class="t-1">排行</span><span class="t-2">片名</span><span class="t-10">主演</span><span class="t-4">导演</span><span class="t-4">类型</span><span class="t-6">评分</span></li>',
-//     '<li><span class="t-1">排行</span><span class="t-2">片名</span><span class="t-10">主演</span><span class="t-4">导演</span><span class="t-4">类型</span><span class="t-5">昨日新增</span><span class="t-6">走势</span></li>',
-//     '<li><span class="t-1">排行</span><span class="t-2">片名</span><span class="t-10">主演</span><span class="t-4">导演</span><span class="t-4">类型</span><span class="t-4">评分</span><span class="t-4">票房</span></li>'
-// ];
-
-// var hbstr = '<li><span class="t-1">排行</span><span class="t-2">片名</span><span class="t-10">主演</span><span class="t-4">导演</span><span class="t-4">类型</span><span class="t-5">昨日新增</span><span class="t-6">走势</span></li>'
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// var ian = ia.length;
-// var chartdata = $('.chart-data');
-// var tabs = ['电影影响力榜', '电影热议榜', '电影好评榜', '本月票房排行', '更新时间: 2017/02/23'];
-
-// $('.heading-inner').html('<h2 class="sec-title"> <span>电影</span>排行榜</h2><p>' + tabs[tabs.length-1] + '</p>');
-
-// chartdata.find('.charts-kinds').find('a').html(tabs[0]);
-
-// for (var i = 1; i < ian; ++i) {
-//     chartdata.append('<ol class="chart-list j-for"></ol>').end().find('.charts-kinds').append('<a href="javascript:;"class="j-tab">' + tabs[i] + '</a>');
-// }
-
-// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// for (var k = 0; k < ian; ++k) {
-//     var listr = str[k];
-//     for (var i = 0; i < ia[k].length; ++i) {
-//         var lilen = ia[k][0].length;
-//         if (i == 0) {
-//             var li0 = $(listr);
-//             for (var j = 0; j < lilen; ++j) {
-//                 li0.find('span:nth-child(' + (j + 1) + ')').html(ia[k][0][j]);
-//             }
-//             $($('.chart-list')[k]).html(li0);
-//         } else {
-//             var li = $(listr);
-//             li.find('span:first-child').html('<i class="rank-' + ((ia[k][i][0] > 3) ? 'other' : 'T3') + '">' + ia[k][i][0] + '</i>');
-
-//             if (ia[k][i][1] == '湄公河行动')
-//                 li.find('span:nth-child(2)').html('<a href="mghxd.html?' + ia[k][i][1] + '" title="点击查看：' + ia[k][i][1] + '" target="_blank">' + ia[k][i][1] + '</a>');
-//             else
-//                 li.find('span:nth-child(2)').html('<a href="search.html?movie/' + ia[k][i][1] + '" title="点击查看：' + ia[k][i][1] + '" target="_blank">' + ia[k][i][1] + '</a>');
-
-//             for (var j = 2; j < lilen; ++j) {
-//                 li.find('span:nth-child(' + (j + 1) + ')').html(ia[k][i][j]);
-//             }
-//             var last = li.find('span:last-child').text();
-//             if (last == '↑' || last == '↓') {
-//                 li.find('span:last-child').addClass((last == '↑') ? 'up' : 'down');
-//             }
-//             $($('.chart-list')[k]).append(li);
-//         }
-//     }
-// }
 $('.j-tab').hover(function() {
     if ($(this).hasClass('selected')) {
         return false;

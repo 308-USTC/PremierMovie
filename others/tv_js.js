@@ -158,35 +158,58 @@ function queryById(id, i) {
 
 function wtia(ia) {
     let loop = `
-    var str = ['<li><span class="t-1">排行</span><span class="t-2">片名</span><span class="t-10">主演</span><span class="t-4">地区</span><span class="t-4">类型</span><span class="t-5">昨日新增</span><span class="t-6">走势</span></li>','<li><span class="t-1">排行</span><span class="t-2">片名</span><span class="t-3">上榜天数</span><span class="t-4">最高排名</span> <span class="t-5">昨日新增</span><span class="t-6">走势</span></li>','<li><span class="t-1">排行</span><span class="t-2">片名</span><span class="t-3">主演</span><span class="t-4">地区</span><span class="t-5">类型</span><span class="t-6">评分</span></li>'
-    ];
 
-    for (var k = 0; k < ia.length; ++k) {
-        var listr = str[k];
-        for (var i = 0; i < ia[k].length; ++i) {
-            var lilen = ia[k][0].length;
-            if (i == 0) {
-                var li0 = $(listr);
-                for (var j = 0; j < lilen; ++j) {
-                    li0.find('span:nth-child(' + (j + 1) + ')').html(ia[k][0][j]);
-                }
-                $($('.chart-list')[k]).html(li0);
-            } else {
-                var li = $(listr);
-                li.find('span:first-child').html('<i class="rank-' + ((ia[k][i][0] > 3) ? 'other' : 'T3') + '">' + ia[k][i][0] + '</i>');
-                li.find('span:nth-child(2)').html('<a href="searchtv.html?' + ia[k][i][1] + '" title="点击查看：' + ia[k][i][1] + '" target="_blank">' + ia[k][i][1] + '</a>');
+var title = $('#sec-title');
+var chart = $('#chart-data');
+// 替换标题和时间
+title.html('<span>电视剧</span>排行榜TOP10').parent().append('<p> 更新时间: 2017/03/15 </p>');
+// 替换tab
+chart.html('<div class="charts-kinds"><a href="javascript:;" class="j-tab selected">电视剧热播榜</a><a href="javascript:;" class="j-tab">电视剧热议榜</a><a href="javascript:;" class="j-tab">电视剧好评榜</a></div>');
 
-                for (var j = 2; j < lilen; ++j) {
-                    li.find('span:nth-child(' + (j + 1) + ')').html(ia[k][i][j]);
-                }
-                var last = li.find('span:last-child').text();
-                if (last == '↑' || last == '↓') {
-                    li.find('span:last-child').addClass((last == '↑') ? 'up' : 'down');
-                }
-                $($('.chart-list')[k]).append(li);
-            }
-        }
+Handlebars.registerHelper('selected', function(idx, opt) {
+    if (idx === 0) return 'selected';
+});
+
+Handlebars.registerHelper('rank', function(idx, opt) {
+    if (idx === '排行') return idx;
+    if (idx <= 3) return '<i class="rank-T3">' + idx + '</i>';
+    return '<i class="rank-other">' + idx + '</i>';
+});
+
+var lastIdx;
+Handlebars.registerHelper('index', function(idx, opt) {
+    if (!parseInt(idx)) {
+        lastIdx = 100000;
+        return idx;
     }
+    if (idx < 10) return idx; // 针对评分
+
+    lastIdx = lastIdx - Math.floor(Math.random() * lastIdx / 2);
+    return lastIdx;
+});
+
+Handlebars.registerHelper('status', function(val, opt) {
+    if (!val) return;
+    if (!parseInt(val)) return val;
+    if (val > 0) return '<span class="up"> + ' + Math.floor(Math.random() * 1000) + '</span>';
+    return '<span class="down"> - ' + Math.floor(Math.random() * 1000) + '</span>'
+});
+
+var olstr ='{{#each this}}<ol class="chart-list j-for {{#selected @index}}{{/selected}}">{{#with this}}{{#each this}}<li><span class="t-1 text-center">{{#rank this.[0]}}{{/rank}} </span><span class="t-2"><a href="search.html?tv/{{ this.[1] }}"title="点击查看：{{ this.[1] }}"target="_blank">{{this.[1]}}</a></span><span class="t-3">{{this.[2]}}</span><span class="t-4 text-center">{{this.[3]}}</span><span class="t-5">{{this.[4]}}</span><span class="t-6 text-center">{{#index this.[5]}}{{/index}}</span><span class="t-7 text-center">{{#status this.[6]}}{{/status}} </span></li>{{/each}}    {{/with}}</ol>{{/each}}'
+
+var template = Handlebars.compile(olstr);
+var allstr = template(ia);
+chart.append(allstr);
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$('.j-tab').hover(function() {
+    if ($(this).hasClass('selected')) {
+        return false;
+    }
+    $(this).siblings().removeClass('selected').end().addClass('selected');
+    $('.j-for').removeClass('selected').eq($(this).index()).addClass('selected');
+});
+
     `
     fs.writeFile(path.join(__dirname, '../js/tv.js'), '\n var ia = ' + JSON.stringify(ia) + '\n' + loop, function(err2) {
         if (err2) console.log('fs writeFile err: ', err2);
