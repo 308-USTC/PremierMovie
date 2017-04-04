@@ -60,12 +60,7 @@ var chart = $('#chart-data');
 // 替换标题和时间
 title.html('<span>电影</span>排行榜TOP10').parent().append('<p> 更新时间: 2017/03/15 </p>');
 // 替换tab
-chart.html(`<div class="charts-kinds">
-<a href="javascript:;" class="j-tab selected">电影影响力榜</a>
-<a href="javascript:;" class="j-tab">电影好评榜</a>
-<a href="javascript:;" class="j-tab">电影热议榜</a>
-<a href="javascript:;" class="j-tab">本月票房排行</a>
-</div>`);
+chart.html('<div class="charts-kinds"><a href="javascript:;" class="j-tab selected">电影影响力榜</a><a href="javascript:;" class="j-tab">电影好评榜</a><a href="javascript:;" class="j-tab">电影热议榜</a><a href="javascript:;" class="j-tab">本月票房排行</a></div>');
 
 Handlebars.registerHelper('selected', function(idx, opt){
     if(idx === 0) return 'selected';
@@ -107,40 +102,7 @@ Handlebars.registerHelper('status', function(val, opt){
     return '<span class="down"> - '+  Math.floor(Math.random()*1000)  +'</span>'
 });
 
-var olstr =
-`
-<style>
-.t-2 , .t-5 {
-        width: 130px;
-}
-.t-4 {
-        width: 90px;
-}
-@media (max-width: 767px) {
-    .chart-list .t-5 {
-        display: none;
-    }
-}
-</style>
-
-{{#each this}}
-<ol class="chart-list j-for {{#selected @index}}{{/selected}}">
-    {{#with this}}
-        {{#each this}}
-        <li>
-            <span class="t-1"> {{#rank this.[0]}}{{/rank}} </span>
-            <span class="t-2"> <a href="search.html?movie/{{ this.[1] }}" title="点击查看：{{ this.[1] }}" target="_blank"> {{ this.[1] }} </a></span>
-            <span class="t-3">{{ this.[2] }}</span>
-            <span class="t-4">{{ this.[3] }}</span>
-            <span class="t-5">{{ this.[4] }}</span>
-            <span class="t-6 text-center">{{#index this.[5]}}{{/index}}</span>
-            <span class="t-7 text-center"> {{#status this.[6]}}{{/status}} </span>
-        </li>
-        {{/each}}
-    {{/with}}
-</ol>
-{{/each}}
-`
+var olstr ='<style>.t-2,.t-5{width:130px}.t-4{width:90px}@media(max-width:767px){.chart-list.t-5{display:none}}</style>{{#each this}}<ol class="chart-list j-for {{#selected @index}}{{/selected}}">{{#with this}}{{#each this}}<li><span class="t-1">{{#rank this.[0]}}{{/rank}} </span><span class="t-2"><a href="search.html?movie/{{ this.[1] }}"title="点击查看：{{ this.[1] }}"target="_blank">{{this.[1]}}</a></span><span class="t-3">{{this.[2]}}</span><span class="t-4">{{this.[3]}}</span><span class="t-5">{{this.[4]}}</span><span class="t-6 text-center">{{#index this.[5]}}{{/index}}</span><span class="t-7 text-center">{{#status this.[6]}}{{/status}} </span></li>{{/each}}{{/with}}</ol>{{/each}}'
 var template = Handlebars.compile(olstr);
 var allstr = template(ia);
 chart.append(allstr);
@@ -154,7 +116,7 @@ chart.append(allstr);
 //     '<li><span class="t-1">排行</span><span class="t-2">片名</span><span class="t-10">主演</span><span class="t-4">导演</span><span class="t-4">类型</span><span class="t-4">评分</span><span class="t-4">票房</span></li>'
 // ];
 
-// var hbstr = `<li><span class="t-1">排行</span><span class="t-2">片名</span><span class="t-10">主演</span><span class="t-4">导演</span><span class="t-4">类型</span><span class="t-5">昨日新增</span><span class="t-6">走势</span></li>`
+// var hbstr = '<li><span class="t-1">排行</span><span class="t-2">片名</span><span class="t-10">主演</span><span class="t-4">导演</span><span class="t-4">类型</span><span class="t-5">昨日新增</span><span class="t-6">走势</span></li>'
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // var ian = ia.length;

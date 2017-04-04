@@ -45,11 +45,7 @@ var chart = $('#chart-data');
 // 替换标题和时间
 title.html('<span>电视剧</span>排行榜TOP10').parent().append('<p> 更新时间: 2017/03/15 </p>');
 // 替换tab
-chart.html(`<div class="charts-kinds">
-<a href="javascript:;" class="j-tab selected">电视剧热播榜</a>
-<a href="javascript:;" class="j-tab">电视剧热议榜</a>
-<a href="javascript:;" class="j-tab">电视剧好评榜</a>
-</div>`);
+chart.html('<div class="charts-kinds"><a href="javascript:;" class="j-tab selected">电视剧热播榜</a><a href="javascript:;" class="j-tab">电视剧热议榜</a><a href="javascript:;" class="j-tab">电视剧好评榜</a></div>');
 
 Handlebars.registerHelper('selected', function(idx, opt) {
     if (idx === 0) return 'selected';
@@ -80,26 +76,7 @@ Handlebars.registerHelper('status', function(val, opt) {
     return '<span class="down"> - ' + Math.floor(Math.random() * 1000) + '</span>'
 });
 
-var olstr =
-    `
-{{#each this}}
-<ol class="chart-list j-for {{#selected @index}}{{/selected}}">
-    {{#with this}}
-        {{#each this}}
-        <li>
-            <span class="t-1 text-center"> {{#rank this.[0]}}{{/rank}} </span>
-            <span class="t-2"> <a href="search.html?tv/{{ this.[1] }}" title="点击查看：{{ this.[1] }}" target="_blank"> {{ this.[1] }} </a></span>
-            <span class="t-3">{{ this.[2] }}</span>
-            <span class="t-4 text-center">{{ this.[3] }}</span>
-            <span class="t-5">{{ this.[4] }}</span>
-            <span class="t-6 text-center">{{#index this.[5]}}{{/index}}</span>
-            <span class="t-7 text-center">{{#status this.[6]}}{{/status}} </span>
-        </li>
-        {{/each}}
-    {{/with}}
-</ol>
-{{/each}}
-`
+var olstr ='{{#each this}}<ol class="chart-list j-for {{#selected @index}}{{/selected}}">{{#with this}}{{#each this}}<li><span class="t-1 text-center">{{#rank this.[0]}}{{/rank}} </span><span class="t-2"><a href="search.html?tv/{{ this.[1] }}"title="点击查看：{{ this.[1] }}"target="_blank">{{this.[1]}}</a></span><span class="t-3">{{this.[2]}}</span><span class="t-4 text-center">{{this.[3]}}</span><span class="t-5">{{this.[4]}}</span><span class="t-6 text-center">{{#index this.[5]}}{{/index}}</span><span class="t-7 text-center">{{#status this.[6]}}{{/status}} </span></li>{{/each}}    {{/with}}</ol>{{/each}}'
 
 var template = Handlebars.compile(olstr);
 var allstr = template(ia);
