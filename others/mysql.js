@@ -15,7 +15,7 @@ function queryByNameInMySql(name) {
         if (err) console.log(err, 'connect :' + name);
     });
 
-    connection.query('SELECT * FROM name_id WHERE movie_name="' + name + '"', (err, rows, fields) => {
+    connection.query('SELECT * FROM movie_info WHERE movie_name="' + name + '"', (err, rows, fields) => {
         if (err) {
             console.log(name, err);
         } else {
@@ -25,4 +25,4 @@ function queryByNameInMySql(name) {
     });
     connection.end(); //关闭连接
 }
-queryByNameInMySql("mengfanchen");
+queryByNameInMySql("朗读者");

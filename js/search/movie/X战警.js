@@ -3,8 +3,6 @@
  
     var bar_stack_option = {
         title: {
-            //text: '',
-            //subtext: '纯属虚构',
             x: 'left'
         },
         tooltip: {
