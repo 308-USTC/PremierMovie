@@ -1,5 +1,4 @@
 let fs = require('fs');
-let superagent = require('superagent');
 let mysql = require('mysql');
 let path = require('path');
 
@@ -25,4 +24,4 @@ function queryByNameInMySql(name) {
     });
     connection.end(); //关闭连接
 }
-queryByNameInMySql("朗读者");
+queryByNameInMySql("X战警");
