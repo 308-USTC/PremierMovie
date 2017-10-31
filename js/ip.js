@@ -82,7 +82,7 @@ Handlebars.registerHelper('index', function(idx, opt){
     if( !parseInt(idx) ) {
         lastIdx = 100000;
         return idx;
-    }
+    } 
 
     lastIdx = lastIdx - Math.floor( Math.random()*lastIdx/2 ) ;
     return lastIdx;
