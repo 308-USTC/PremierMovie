@@ -258,17 +258,20 @@ i.rank-other {
 }
 
 .t-3 {
-    width: 200px;
+    width: 180px;
+    text-align: center;
 }
 
 .t-4 {
-    width: 60px;
+    width: 97px;
+    text-align: center;
 }
 
 .t-5,
 .t-6,
 .t-7 {
-    width: 80px;
+    width: 118px;
+    text-align: center;
 }
 
 @media (max-width: 991px) {

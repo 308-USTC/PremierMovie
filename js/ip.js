@@ -103,7 +103,7 @@ Handlebars.registerHelper('status', function(val, opt){
     return '<span class="down"> - '+  Math.floor(Math.random()*1000)  +'</span>'
 });
 
-var olstr ='<style>.t-2{width:80px}.t-3{width:300px}.chart-list:nth-of-type(4).t-5{width:100px}.t-6{width:120px}@media(max-width:767px){.chart-list.t-4{display:inline-block}}</style>\
+var olstr ='<style>.t-2{width:80px}.t-3{width:180px}.chart-list:nth-of-type(4).t-5{width:100px}.t-6{width:120px}@media(max-width:767px){.chart-list.t-4{display:inline-block}}</style>\
 {{#each this}}<ol class="chart-list j-for {{#selected @index}}{{/selected}}">\
     {{#with this}}{{#each this}}<li>\
         <span class="t-1">{{#rank this.[0]}}{{/rank}}</span>\
