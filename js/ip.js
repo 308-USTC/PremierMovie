@@ -67,7 +67,7 @@ var ia = [
 var title = $('#sec-title');
 var chart = $('#chart-data');
 // 替换标题和时间
-title.html('<span>IP</span>排行榜TOP10').parent().append('<p> 更新时间: 2017/11/05 </p>');
+title.html('<span>IP</span>排行榜TOP10').parent().append('<p> 更新时间: 2018/01/02 </p>');
 // 替换tab
 var tab = '<div class="charts-kinds">\
             <a href="javascript:;"class="j-tab selected">历史收藏</a>\
